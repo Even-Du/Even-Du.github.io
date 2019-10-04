@@ -230,22 +230,9 @@
 <p>线性表的元素个数n为线性表的长度，n = 0 时，称为空表。</p>
 <h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><p>线性表的顺序存储结构，着的是用一段地址连续的存储单元一次存储线性表的数据元素。</p>
 <h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct sList&#123;</span><br><span class="line">	elementType data[MAXLEN];	//定义存储表中元素的数组 </span><br><span class="line">	int listLen;				//定义表长度分量 </span><br><span class="line">&#125;seqList;</span><br></pre></td></tr></table></figure>
-
-<p>注：数组长度为MAXLEN。 线性表当前长度为listlen。</p>
-<p>MAXLEN不可变，listlen可变，在任意时刻，listlen &lt;= MAXLEN</p>
-<h4 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">void initialList(seqList *L)&#123;	//初始化 </span><br><span class="line">	L-&gt;listLen = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int listLength(seqList L)&#123;		//求表长度 </span><br><span class="line">	return L.listLen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int listLocate(seqList L,elementType x)&#123;	//按值查找 </span><br><span class="line">	int i = 0;</span><br><span class="line">	for(i = 0 ; i &lt; L.listLen ; i++)&#123;</span><br><span class="line">		if(L.data[i] == x)</span><br><span class="line">			return i+1;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void print(seqList *L)&#123;				//打印表</span><br><span class="line">	if(L-&gt;listLen &lt;= 0)</span><br><span class="line">		cout&lt;&lt;&quot;表空&quot;&lt;&lt;endl;</span><br><span class="line">	else&#123;</span><br><span class="line">		for(int i = 0 ; i &lt; L-&gt;listLen ; i++)</span><br><span class="line">			cout&lt;&lt;L-&gt;data[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void insertAll(seqList *L)&#123;		//手动输入插入</span><br><span class="line">	cout&lt;&lt;&quot;输入插入的值，输入-1结束&quot;&lt;&lt;endl;</span><br><span class="line">	int x;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	int i = 0;</span><br><span class="line">	while(x != -1)&#123;</span><br><span class="line">		if(L-&gt;listLen == MAXLEN)&#123;</span><br><span class="line">			cout&lt;&lt;&quot;表满！&quot;&lt;&lt;endl;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		L-&gt;data[i] = x;</span><br><span class="line">		L-&gt;listLen++;</span><br><span class="line">		i++;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//1. 求顺序表中第i个元素（函数），若不存在，报错。</span><br><span class="line">int getElement(seqList L , int i , elementType *x)&#123;		//按序号查找元素 </span><br><span class="line">	if(i &gt; L.listLen || i &lt; 1)&#123;</span><br><span class="line">		cout&lt;&lt;&quot;所给查找序号范围错误！&quot; &lt;&lt;endl;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		(*x) = L.data[i-1];		</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2. 在第i个结点前插入值为x的结点。 </span><br><span class="line">//0 1 2 3 4 5  i = 3;</span><br><span class="line">//1 2 3 4 5 6</span><br><span class="line">int listInsert(seqList *L , elementType x , int i)&#123;	//插入函数 </span><br><span class="line">	if(L-&gt;listLen == MAXLEN)&#123;</span><br><span class="line">		cout&lt;&lt;&quot;表满不能插入&quot;&lt;&lt;endl; </span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(i &gt; L-&gt;listLen + 1 || i &lt; 1 )&#123;</span><br><span class="line">		cout&lt;&lt;&quot;所给插入序号范围错误！&quot;&lt;&lt;endl;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int j;</span><br><span class="line">		for(j = L-&gt;listLen-1 ; j &gt;= i-1 ; j-- )&#123;</span><br><span class="line">			L-&gt;data[j+1] = L-&gt;data[j];</span><br><span class="line">		&#125;</span><br><span class="line">		L-&gt;data[i-1] = x;</span><br><span class="line">		L-&gt;listLen++;</span><br><span class="line">		return 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//3.删除顺序表中第i个元素结点。</span><br><span class="line">int listDelete(seqList *L , int i)&#123;			//删除函数 </span><br><span class="line">	if(L-&gt;listLen &lt;= 0)&#123;</span><br><span class="line">		cout&lt;&lt;&quot;表空不能删除&quot;&lt;&lt;endl; </span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(i &gt; L-&gt;listLen || i &lt; 1)&#123;</span><br><span class="line">		cout&lt;&lt;&quot;所给删除序号范围错误！&quot;&lt;&lt;endl;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int j;</span><br><span class="line">		for(j = i ; j &lt; L-&gt;listLen ; j++)&#123;</span><br><span class="line">			L-&gt;data[j-1] = L-&gt;data[j];	</span><br><span class="line">		&#125;</span><br><span class="line">		L-&gt;listLen--;</span><br><span class="line">		return 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注：插入删除操作需要整体移动元素。</p>
-<p><strong>插入操作</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(j = L-&gt;listLen-1 ; j &gt;= i-1 ; j-- )</span><br><span class="line">			L-&gt;data[j+1] = L-&gt;data[j];</span><br><span class="line">		L-&gt;data[i-1] = x;</span><br><span class="line">		L-&gt;listLen++;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/03/数据结构-线性表/1.png" alt></p>
-<p><strong>删除操作</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(j = i ; j &lt; L-&gt;listLen ; j++)</span><br><span class="line">			L-&gt;data[j-1] = L-&gt;data[j];	</span><br><span class="line">		L-&gt;listLen--;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/03/数据结构-线性表/2.png" alt></p>
-<p>注：i为插入的位置 1~n ，插入和删除操作进行完之后不要忘记改变listlen的值。</p>
-
+    
+    <a class="article-more-a" href="/2019/10/03/数据结构-线性表/#more">more >></a>
+    
     
 
     
@@ -335,14 +322,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="算法的特性"><a href="#算法的特性" class="headerlink" title="算法的特性"></a>算法的特性</h3><p>算法具有五个基本特性：输入、输出、有穷性、确定性、可行性</p>
-<h3 id="算法的时间复杂度"><a href="#算法的时间复杂度" class="headerlink" title="算法的时间复杂度"></a>算法的时间复杂度</h3><p>语句总的执行次数T(n)是关于问题规模n的函数，记作T(n) = O(f(n))。</p>
-<p>它表示随问题规模n的增大，算法执行的增长率和f(n)的增长率相同，称作算法的时间复杂度，f(n)是问题规模n的某个函数。</p>
-<h4 id="推倒大O阶方法"><a href="#推倒大O阶方法" class="headerlink" title="推倒大O阶方法"></a>推倒大O阶方法</h4><p>1.用<strong>常数1</strong>取代运行时间中的所有<strong>加法常数</strong>。</p>
-<p>2.在修改后的运行次数函数中，只保留<strong>最高阶项</strong>。</p>
-<p>3.如果<strong>最高阶项</strong>存在且<strong>不是1</strong>，则<strong>去除</strong>与这个<strong>项</strong>相乘<strong>的常数</strong>，得到的结果就是大O阶。</p>
-<h4 id="时间复杂度排序"><a href="#时间复杂度排序" class="headerlink" title="时间复杂度排序"></a>时间复杂度排序</h4><p>O(1) &lt; O(log<em>n</em>) &lt; O(<em>n</em>) &lt; O(<em>n</em>log<em>n</em>) &lt; O(<em>n^2</em>) &lt; O(<em>n</em>^3) &lt; O(2^<em>n)</em> &lt; O(<em>n</em>!) &lt; O(<em>n</em>^<em>n</em>)</p>
-<p>O（<em>n</em>^3)及以上在实际算法中一般都不会得到应用。</p>
-
+    
+    <a class="article-more-a" href="/2019/10/03/数据结构-算法/#more">more >></a>
+    
     
 
     
@@ -436,7 +418,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="加西亚·马尔克斯"><a href="#加西亚·马尔克斯" class="headerlink" title="加西亚·马尔克斯"></a>加西亚·马尔克斯</h3><p><img src="/2019/10/03/百年孤独/timg.jpg" alt></p>
-
+    
+    <a class="article-more-a" href="/2019/10/03/百年孤独/#more">more >></a>
+    
     
 
     
@@ -528,23 +512,9 @@
     <h2 id="hexo-常用命令"><a href="#hexo-常用命令" class="headerlink" title="hexo 常用命令"></a>hexo 常用命令</h2><p><em>hexo new “标题”</em>                //创建md文件，准备写文章</p>
 <p><em>hexo g</em>                                 //generate的缩写,生成静态文件</p>
 <p><em>hexo d</em>                                 //deploy 部署网站</p>
-<p>修改配置之后只要在cmd里输入：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>即可完成部署。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>可直接在本地<a href="http://localhost:4000/查看效果" target="_blank" rel="noopener">http://localhost:4000/查看效果</a></p>
-<h2 id="hexo主题"><a href="#hexo主题" class="headerlink" title="hexo主题"></a>hexo主题</h2><p>在blog目录下修改_config.yml文的 <strong>theme: 主题名</strong> 即可，此文件修改的可修改内容与冒号之间都需要加上<strong>空格</strong>。</p>
-<p>下载主题</p>
-<p>在git bash 框内输入 git clone 主题地址 themes/主题名即可</p>
-<p>示例：git clone <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a> themes/next</p>
-<p>之后会自动下载完成</p>
-<h2 id="typora常用命令"><a href="#typora常用命令" class="headerlink" title="typora常用命令"></a>typora常用命令</h2><p><em>Ctrl + 1  2  3  4  5  6</em>          //分别对应一级到六级标题</p>
-<p><em>~ ~ ~ + enter</em>                     //生成代码块，注意使用时~没有空格</p>
-<p>第一篇先写这么多吧，以后会另行补充。</p>
-<p><img src="/2019/09/30/开篇/constantly.jpg" alt></p>
-
+    
+    <a class="article-more-a" href="/2019/09/30/开篇/#more">more >></a>
+    
     
 
     
@@ -561,6 +531,14 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搭载好博客的第一天</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Typora</a>
         		</li>
       		
 		</ul>
@@ -716,7 +694,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,10 +715,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
               </li>
              
               <li class="article-tag-list-item">
