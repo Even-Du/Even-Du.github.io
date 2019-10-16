@@ -10,20 +10,20 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="栈栈的定义栈(stack)是限定仅在表尾进行插入和删除操作的线性表。 插入 push 和删除 pop 的一端叫栈顶 top 另一端叫栈底 bottom 栈又称 Last In First Out 后进先出的线性表，LIFO结构。 🧐顺序栈结构：1234typedef struct &amp;#123;	elementType data[MAXLEN];	int top;						//栈顶指针,相当于栈">
+  <meta name="description" content="栈栈的定义栈(stack)是限定仅在表尾进行插入和删除操作的线性表。 插入 push 和删除 pop 的一端叫栈顶 top 另一端叫栈底 bottom 栈又称 Last In First Out 后进先出的线性表，LIFO结构。">
 <meta name="keywords" content="大话数据结构,栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构-栈">
 <meta property="og:url" content="http://yoursite.com/2019/10/05/数据结构-栈/index.html">
 <meta property="og:site_name" content="马孔多今天下雨了吗">
-<meta property="og:description" content="栈栈的定义栈(stack)是限定仅在表尾进行插入和删除操作的线性表。 插入 push 和删除 pop 的一端叫栈顶 top 另一端叫栈底 bottom 栈又称 Last In First Out 后进先出的线性表，LIFO结构。 🧐顺序栈结构：1234typedef struct &amp;#123;	elementType data[MAXLEN];	int top;						//栈顶指针,相当于栈">
+<meta property="og:description" content="栈栈的定义栈(stack)是限定仅在表尾进行插入和删除操作的线性表。 插入 push 和删除 pop 的一端叫栈顶 top 另一端叫栈底 bottom 栈又称 Last In First Out 后进先出的线性表，LIFO结构。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/10/05/数据结构-栈/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/05/数据结构-栈/4.jpg">
-<meta property="og:updated_time" content="2019-10-05T13:48:22.374Z">
+<meta property="og:updated_time" content="2019-10-16T10:26:54.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-栈">
-<meta name="twitter:description" content="栈栈的定义栈(stack)是限定仅在表尾进行插入和删除操作的线性表。 插入 push 和删除 pop 的一端叫栈顶 top 另一端叫栈底 bottom 栈又称 Last In First Out 后进先出的线性表，LIFO结构。 🧐顺序栈结构：1234typedef struct &amp;#123;	elementType data[MAXLEN];	int top;						//栈顶指针,相当于栈">
+<meta name="twitter:description" content="栈栈的定义栈(stack)是限定仅在表尾进行插入和删除操作的线性表。 插入 push 和删除 pop 的一端叫栈顶 top 另一端叫栈底 bottom 栈又称 Last In First Out 后进先出的线性表，LIFO结构。">
 <meta name="twitter:image" content="http://yoursite.com/2019/10/05/数据结构-栈/1.png">
   
     <link rel="alternative" href="/atom.xml" title="马孔多今天下雨了吗" type="application/atom+xml">
@@ -247,6 +247,8 @@
 <p>插入 push 和删除 pop 的一端叫<strong>栈顶 top</strong></p>
 <p>另一端叫<strong>栈底 bottom</strong></p>
 <p>栈又称 Last In First Out 后进先出的线性表，LIFO结构。</p>
+<a id="more"></a>
+
 <h3 id="🧐顺序栈"><a href="#🧐顺序栈" class="headerlink" title="🧐顺序栈"></a>🧐顺序栈</h3><h4 id="结构："><a href="#结构：" class="headerlink" title="结构："></a>结构：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">	elementType data[MAXLEN];</span><br><span class="line">	int top;						//栈顶指针,相当于栈顶的数组下标</span><br><span class="line">&#125;seqStack;</span><br></pre></td></tr></table></figure>
 
 <h4 id="基本操作："><a href="#基本操作：" class="headerlink" title="基本操作："></a>基本操作：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">//1.初始化栈</span><br><span class="line">void initSeq(seqStack *S) &#123;</span><br><span class="line">	S-&gt;top = -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.判断栈空</span><br><span class="line">bool isEmptySeq(seqStack *S) &#123;</span><br><span class="line">	if (S-&gt;top == -1) &#123;</span><br><span class="line">//		cout &lt;&lt; &quot;栈空！&quot; &lt;&lt; endl;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">		return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//3.判断栈满</span><br><span class="line">bool isFullSeq(seqStack *S) &#123;</span><br><span class="line">	if (S-&gt;top == MAXLEN - 1)</span><br><span class="line">		return true;</span><br><span class="line">	else</span><br><span class="line">		return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//4.取栈顶元素</span><br><span class="line">void getTopSeq(seqStack *S,elementType &amp;x) &#123;</span><br><span class="line">	if (isEmptySeq(S)) &#123;</span><br><span class="line">		cout&lt;&lt;&quot;栈空！&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">		x = S-&gt;data[S-&gt;top];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//5.入栈</span><br><span class="line">void push(seqStack *S,elementType x)&#123;</span><br><span class="line">	if(isFullSeq(S))&#123;</span><br><span class="line">		cout&lt;&lt;&quot;栈满！&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		S-&gt;top++;</span><br><span class="line">		S-&gt;data[S-&gt;top] = x;</span><br><span class="line">	&#125;</span><br><span class="line">//	print(S);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">//6.出栈</span><br><span class="line">void pop(seqStack *S,elementType &amp;x)&#123;</span><br><span class="line">	if(isEmptySeq(S))&#123;</span><br><span class="line">		cout&lt;&lt;&quot;栈空！&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		x = S-&gt;data[S-&gt;top];</span><br><span class="line">		S-&gt;top--;</span><br><span class="line">	&#125;</span><br><span class="line">//	print(S);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -567,6 +569,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭载好博客的第一天</a>
               </li>
              
@@ -576,10 +586,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,10 +602,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">百年孤独</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
