@@ -6,25 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LL1分析法 | 马孔多今天下雨了吗</title>
+  <title>java常用数据结构 | 马孔多今天下雨了吗</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="LL1分析法一、实验要求对下列文法，用 LL（1）分析法对任意输入的符号串进行分析：">
-<meta name="keywords" content="编译原理,LL1">
+  <meta name="description" content="List、Set、Map及工具类主要功能及其优缺点">
+<meta name="keywords" content="java,数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LL1分析法">
-<meta property="og:url" content="http://yoursite.com/2019/10/16/LL1分析法/index.html">
+<meta property="og:title" content="java常用数据结构">
+<meta property="og:url" content="http://yoursite.com/2019/10/26/java常用数据结构/index.html">
 <meta property="og:site_name" content="马孔多今天下雨了吗">
-<meta property="og:description" content="LL1分析法一、实验要求对下列文法，用 LL（1）分析法对任意输入的符号串进行分析：">
+<meta property="og:description" content="List、Set、Map及工具类主要功能及其优缺点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/10/16/LL1分析法/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/16/LL1分析法/2.png">
-<meta property="og:updated_time" content="2019-10-16T10:50:16.222Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/java常用数据结构/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/java常用数据结构/1.png">
+<meta property="og:updated_time" content="2019-10-26T12:52:33.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LL1分析法">
-<meta name="twitter:description" content="LL1分析法一、实验要求对下列文法，用 LL（1）分析法对任意输入的符号串进行分析：">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/16/LL1分析法/1.png">
+<meta name="twitter:title" content="java常用数据结构">
+<meta name="twitter:description" content="List、Set、Map及工具类主要功能及其优缺点">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/26/java常用数据结构/2.png">
   
     <link rel="alternative" href="/atom.xml" title="马孔多今天下雨了吗" type="application/atom+xml">
   
@@ -190,14 +190,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LL1分析法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java常用数据结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      LL1分析法
+      java常用数据结构
     </h1>
   
 
@@ -209,8 +209,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/10/16/LL1分析法/" class="archive-article-date">
-        <time datetime="2019-10-16T08:56:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+<a href="/2019/10/26/java常用数据结构/" class="archive-article-date">
+        <time datetime="2019-10-26T08:06:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
 </a>
 
   
@@ -223,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1k字</span>
+      <span class="post-count">2k字</span>
     </span>
   </span>
 
@@ -232,7 +232,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -243,59 +243,129 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="LL1分析法"><a href="#LL1分析法" class="headerlink" title="LL1分析法"></a>LL1分析法</h1><h2 id="一、实验要求"><a href="#一、实验要求" class="headerlink" title="一、实验要求"></a>一、实验要求</h2><p>对下列文法，用 LL（1）分析法对任意输入的符号串进行分析： </p>
-<a id="more"></a> 
-<p>（1）E-&gt;TG<br>（2）G-&gt;+TG|—TG<br>（3）G-&gt;ε<br>（4）T-&gt;FS<br>（5）S-&gt;*FS|/FS<br>（6）S-&gt;ε<br>（7）F-&gt;(E)<br>（8）F-&gt;i<br>输出的格式如下：</p>
-<p> <img src="/2019/10/16/LL1分析法/1.png" alt="1"></p>
-<h2 id="二、分析步骤"><a href="#二、分析步骤" class="headerlink" title="二、分析步骤"></a>二、分析步骤</h2><h3 id="1-求出该非终结符的first集"><a href="#1-求出该非终结符的first集" class="headerlink" title="1.求出该非终结符的first集"></a>1.求出该非终结符的first集</h3><h5 id="①-将复合文法拆分成单个文法"><a href="#①-将复合文法拆分成单个文法" class="headerlink" title="①.将复合文法拆分成单个文法"></a>①.将复合文法拆分成单个文法</h5><p>E-&gt;TG</p>
-<p>G-&gt;+TG</p>
-<p>G-&gt;-TG</p>
-<p>G-&gt;$</p>
-<p>T-&gt;FS</p>
-<p>S-&gt;*FS</p>
-<p>S-&gt;/FS</p>
-<p>S-&gt;$</p>
-<p>F-&gt;(E)</p>
-<p>F-&gt;i</p>
-<h5 id="②-如果产生式右部第一个字符为终结符或空字-，则将其计入左部first集"><a href="#②-如果产生式右部第一个字符为终结符或空字-，则将其计入左部first集" class="headerlink" title="②.如果产生式右部第一个字符为终结符或空字$，则将其计入左部first集"></a>②.如果产生式右部第一个字符为终结符或空字$，则将其计入左部first集</h5><p>​    如F-&gt;(E) 和 F-&gt;i    将(加入FIRST(F)，i加入FIRST(F)。</p>
-<h5 id="③-如果产生式右部第一个字符为非终结符执行以下步骤"><a href="#③-如果产生式右部第一个字符为非终结符执行以下步骤" class="headerlink" title="③. 如果产生式右部第一个字符为非终结符执行以下步骤"></a>③. 如果产生式右部第一个字符为非终结符执行以下步骤</h5><p>​    求该非终结符的first集。 如E-&gt;TG，求T的first集(递归)</p>
-<p>​    将该非终结符的非$first集计入左部的first集。 将FIRST(T)中除空字加到FIRST(E)中。    </p>
-<h5 id="④-处理数组中重复的first集中的终结符"><a href="#④-处理数组中重复的first集中的终结符" class="headerlink" title="④.处理数组中重复的first集中的终结符"></a>④.处理数组中重复的first集中的终结符</h5><p>FIRST(E) = {(,i}</p>
-<p>FIRST(G) = {+,-,$}</p>
-<p>FIRST(T) = {(,i}</p>
-<p>FIRST(S) = {*,/,$}</p>
-<p>FIRST(F) = {(,i}</p>
-<h3 id="二、求出非终结符的follow集合"><a href="#二、求出非终结符的follow集合" class="headerlink" title="二、求出非终结符的follow集合"></a>二、求出非终结符的follow集合</h3><p> 对于文法G中每个非终结符A构造FOLLOW(A)的办法是,连续使用下面的规则,直到每个FOLLOW不在增大为止.</p>
-<h5 id="①-对于文法的开始符号S-置-于FOLLOW-S-中"><a href="#①-对于文法的开始符号S-置-于FOLLOW-S-中" class="headerlink" title="①.对于文法的开始符号S,置#于FOLLOW(S)中;"></a>①.对于文法的开始符号S,置#于FOLLOW(S)中;</h5><h5 id="②-若A-gt-aBb是一个产生式-则把FIRST-b-ε-加至FOLLOW-B-中"><a href="#②-若A-gt-aBb是一个产生式-则把FIRST-b-ε-加至FOLLOW-B-中" class="headerlink" title="②.若A-&gt;aBb是一个产生式,则把FIRST(b){ε}加至FOLLOW(B)中;"></a>②.若A-&gt;aBb是一个产生式,则把FIRST(b){ε}加至FOLLOW(B)中;</h5><p>​    (去掉后面终结符或者非终结符first集中的空字并加入B)</p>
-<h5 id="③-若A-gt-aB是一个产生式-或A-gt-aBb是一个产生式而b-gt-ε"><a href="#③-若A-gt-aB是一个产生式-或A-gt-aBb是一个产生式而b-gt-ε" class="headerlink" title="③.若A-&gt;aB是一个产生式,或A-&gt;aBb是一个产生式而b=&gt;ε"></a>③.若A-&gt;aB是一个产生式,或A-&gt;aBb是一个产生式而b=&gt;ε</h5><p>​    (即ε∈FIRST(b))则把FOLLOW(A)加至FOLLOW(B)中。</p>
-<p>​    b可以推出ε或者B作为末尾。</p>
-<p>FOLLOW(E) = { #,)}</p>
-<p>FOLLOW(G) = { #,)}</p>
-<p>FOLLOW(T) = { #,),+,-}</p>
-<p>FOLLOW(S) = { #,),+,-}</p>
-<p>FOLLOW(F) = { #,),*,+,-,/}</p>
-<h3 id="三、根据first集合和follow集合生成预测分析表"><a href="#三、根据first集合和follow集合生成预测分析表" class="headerlink" title="三、根据first集合和follow集合生成预测分析表"></a>三、根据first集合和follow集合生成预测分析表</h3><p>构造分析表M的算法是：</p>
-<p>对文法G的每个产生式A-&gt;a执行第二步和第三步;</p>
-<h5 id="对每个终结符a∈FIRST-a-把A-gt-a加至M-A-a-中"><a href="#对每个终结符a∈FIRST-a-把A-gt-a加至M-A-a-中" class="headerlink" title="对每个终结符a∈FIRST(a),把A-&gt;a加至M[A,a]中;"></a>对每个终结符a∈FIRST(a),把A-&gt;a加至M[A,a]中;</h5><p>​    如 FIRST(E) = {(,i} 将E-&gt;TG放入[ E , ( ] 和 [ E , i ] 中。</p>
-<h5 id="若ε∈FIRST-a-则把任何b∈FOLLOW-A-把A-gt-a加至M-A-b-中"><a href="#若ε∈FIRST-a-则把任何b∈FOLLOW-A-把A-gt-a加至M-A-b-中" class="headerlink" title="若ε∈FIRST(a),则把任何b∈FOLLOW(A)把A-&gt;a加至M[A,b]中;"></a>若ε∈FIRST(a),则把任何b∈FOLLOW(A)把A-&gt;a加至M[A,b]中;</h5><p>​    如FIRST(G) = {+,-,$} FOLLOW(G) = { #,)}则将G-&gt;$放入[ G , # ]和[ G , ) ]中。</p>
-<h5 id="把所有无定义的M-A-a-标上出错标志"><a href="#把所有无定义的M-A-a-标上出错标志" class="headerlink" title="把所有无定义的M[A,a]标上出错标志."></a>把所有无定义的M[A,a]标上出错标志.</h5><p>先遍历完表全部置为出错标志，然后再根据FIRST集合和FOLLOW集合求出产生式覆盖对应位置。</p>
-<pre><code>     +           -        *        /       (       i       )       #     
+    <h1 id="List、Set、Map及工具类"><a href="#List、Set、Map及工具类" class="headerlink" title="List、Set、Map及工具类"></a>List、Set、Map及工具类</h1><p>主要功能及其优缺点</p>
+<a id="more"></a>
 
-E                                          E-&gt;TG    E-&gt;TG                  
+<h2 id="Collection-所有集合类的接口"><a href="#Collection-所有集合类的接口" class="headerlink" title="Collection(所有集合类的接口)"></a>Collection(所有集合类的接口)</h2><p><img src="/2019/10/26/java常用数据结构/2.png" alt="2"></p>
+<p>List、Set都继承自Collection接口，查看JDK API，操作集合常用的方法大部分在该接口中定义了。</p>
+<p><img src="/2019/10/26/java常用数据结构/1.png" alt="1"></p>
+<h2 id="一、列表List"><a href="#一、列表List" class="headerlink" title="一、列表List"></a>一、列表List</h2><h5 id="列表List中所有的结构下标都从0开始，如al-add-3-10-表示将10插入到第四个元素。"><a href="#列表List中所有的结构下标都从0开始，如al-add-3-10-表示将10插入到第四个元素。" class="headerlink" title="列表List中所有的结构下标都从0开始，如al.add(3,10)表示将10插入到第四个元素。"></a>列表List中所有的结构下标都从0开始，如al.add(3,10)表示将10插入到第四个元素。</h5><h3 id="1-ArrayList"><a href="#1-ArrayList" class="headerlink" title="1.ArrayList"></a>1.ArrayList</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; al = new ArrayList&lt;Integer&gt;();</span><br></pre></td></tr></table></figure>
 
-G      G-&gt;+TG    G-&gt;-TG                                        G-&gt;$    G-&gt;$
+<h4 id="主要功能："><a href="#主要功能：" class="headerlink" title="主要功能："></a>主要功能：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> list.add(E e);			//将指定元素添加到集合尾部，E指某一数据类型，如String。</span><br><span class="line"></span><br><span class="line">​list.remove(int index);	//删除并返回该位置上的元素 0~n-1</span><br><span class="line"></span><br><span class="line">​list.remove(E e);		//删除并返回该元素</span><br><span class="line"></span><br><span class="line">​list.size();				//返回该数组的大小 n，可用作遍历 list.fori</span><br></pre></td></tr></table></figure>
 
-T                                          T-&gt;FS    T-&gt;FS                  
+<p>​    ArrayList 不能直接存放基本数据类型，必须使用基本类型对应的包装类。</p>
+<h4 id="基本类型-包装类（引用类型，都在java-lang包下）"><a href="#基本类型-包装类（引用类型，都在java-lang包下）" class="headerlink" title="基本类型         包装类（引用类型，都在java.lang包下）"></a>基本类型         包装类（引用类型，都在java.lang包下）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	byte  			Byte</span><br><span class="line"></span><br><span class="line">​	short 			Short				</span><br><span class="line"></span><br><span class="line">​	int 			Integer				//Integer		</span><br><span class="line"></span><br><span class="line">​	long			Long</span><br><span class="line"></span><br><span class="line">​	float			Float</span><br><span class="line"></span><br><span class="line">​	double			Double</span><br><span class="line"></span><br><span class="line">​	char			Character			//Character</span><br><span class="line"></span><br><span class="line">​	boolean			Boolean</span><br></pre></td></tr></table></figure>
 
-S      S-&gt;$    S-&gt;$    S-&gt;*FS    S-&gt;/FS                      S-&gt;$    S-&gt;$
+<p>❤ 类似顺序表，对数据的索引速度比较快。</p>
+<p>✖ 添加删除操作删除需要移动部分元素，增删性能不高。</p>
+<p>✖ 不支持同步，线程不安全。</p>
+<p> 适用于变化不大，主要用于查询的数据。</p>
+<h3 id="2-LinkList"><a href="#2-LinkList" class="headerlink" title="2.LinkList"></a>2.LinkList</h3><p>LinkedList是双向链表，即同时保有前驱节点和后驱节点，支持正向遍历和反向遍历。</p>
+<p>item为节点中的元素值，prev和next分别是前向节点和后向节点的引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LinkedList&lt;Integer&gt; list = new LinkedList&lt;Integer&gt;(); </span><br><span class="line"></span><br><span class="line">//迭代器遍历</span><br><span class="line">Iterator&lt;Integer&gt; iter1 = list.iterator();</span><br><span class="line">while(iter1.hasNext())&#123;</span><br><span class="line">	iter1.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-F                                          F-&gt;(E)    F-&gt;i                  </code></pre><h3 id="四、利用栈和分析表对输入串进行语法分析"><a href="#四、利用栈和分析表对输入串进行语法分析" class="headerlink" title="四、利用栈和分析表对输入串进行语法分析"></a>四、利用栈和分析表对输入串进行语法分析</h3><p>预测分析程序的总控程序在任何时候都是按STACK栈顶符号X和当前的输入符号行事的,对于任何(X,a),总控程序</p>
-<p> 每次都执行下述三种可能的动作之一;</p>
-<h5 id="①-若X-a-”-”-则宣布分析成功-停止分析过程"><a href="#①-若X-a-”-”-则宣布分析成功-停止分析过程" class="headerlink" title="①.若X=a=”#”,则宣布分析成功,停止分析过程."></a>①.若X=a=”#”,则宣布分析成功,停止分析过程.</h5><h5 id="②-若X-a≠”-”-则把X从STACK栈顶逐出-让a指向下一个输入符号"><a href="#②-若X-a≠”-”-则把X从STACK栈顶逐出-让a指向下一个输入符号" class="headerlink" title="②.若X=a≠”#”,则把X从STACK栈顶逐出,让a指向下一个输入符号."></a>②.若X=a≠”#”,则把X从STACK栈顶逐出,让a指向下一个输入符号.</h5><h5 id="③-若X是一个非终结符-则查看分析表M-若M-A-a-中存放着关于X的一个产生式-那么-首先把X逐出STACK栈顶-然后把产生式的右部符号串按反序一一推进STACK栈-若右部符号为ε-则意味着不推什么东西进栈-在把产生式的右部符号推进栈的同时应做这个产生式相应得语义动作-若M-A-a-中存放着”出错标志”-则调用出错诊察程序ERROR"><a href="#③-若X是一个非终结符-则查看分析表M-若M-A-a-中存放着关于X的一个产生式-那么-首先把X逐出STACK栈顶-然后把产生式的右部符号串按反序一一推进STACK栈-若右部符号为ε-则意味着不推什么东西进栈-在把产生式的右部符号推进栈的同时应做这个产生式相应得语义动作-若M-A-a-中存放着”出错标志”-则调用出错诊察程序ERROR" class="headerlink" title="③.若X是一个非终结符,则查看分析表M,若M[A,a]中存放着关于X的一个产生式,那么,首先把X逐出STACK栈顶,然后把产生式的右部符号串按反序一一推进STACK栈(若右部符号为ε,则意味着不推什么东西进栈).在把产生式的右部符号推进栈的同时应做这个产生式相应得语义动作,若M[A,a]中存放着”出错标志”,则调用出错诊察程序ERROR."></a>③.若X是一个非终结符,则查看分析表M,若M[A,a]中存放着关于X的一个产生式,那么,首先把X逐出STACK栈顶,然后把产生式的右部符号串按反序一一推进STACK栈(若右部符号为ε,则意味着不推什么东西进栈).在把产生式的右部符号推进栈的同时应做这个产生式相应得语义动作,若M[A,a]中存放着”出错标志”,则调用出错诊察程序ERROR.</h5><p><img src="/2019/10/16/LL1分析法/2.png" alt="2"></p>
-<h3 id="五、图形化界面"><a href="#五、图形化界面" class="headerlink" title="五、图形化界面"></a>五、图形化界面</h3><p>​    用eclipse插件windowbuilder进行窗口设计。添加组件后右键add event handler可以添加监听器，之后在源码模式下添加动作代码即可。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">btnGettable.addMouseListener(<span class="keyword">new</span> MouseAdapter() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseDoubleClick</span><span class="params">(MouseEvent e)</span> </span>&#123;</span><br><span class="line">				<span class="comment">//在这里添加事件对应的代码</span></span><br><span class="line">				text.setText(<span class="string">"字符串"</span>);		<span class="comment">//设置text文本框的文本为字符串</span></span><br><span class="line">				text.append(<span class="string">"字符串"</span>);			<span class="comment">//向text文本框中添加字符串</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;);</span><br><span class="line">text = <span class="keyword">new</span> Text(shell, SWT.BORDER | SWT.MULTI);	<span class="comment">//用这种方法new文本框时文本框"加入\n"可以换行</span></span><br></pre></td></tr></table></figure>
+<p>这是java的迭代器的用法。<br>　　(1)使用方法 iterator()要求容器返回一个 Iterator。第一次调用Iterator 的next()方法时，它返回序列的第一个元素。<br>　　(2)使用next()获得序列中的下一个元素。<br>　　(3)使用hasNext()检查序列中是否还有元素。<br>　　(4)使用remove()将上一次返回的元素从迭代器中移除。</p>
+<p>❤ 链表随机位置插入、删除数据时比线性表快。</p>
+<p>✖ 遍历比线性表慢，遍历时尽量用顺序遍历。</p>
+<p>✖ 不支持同步，线程不安全。</p>
+<h3 id="3-vector"><a href="#3-vector" class="headerlink" title="3.vector"></a>3.vector</h3><p>与ArrayList类似，可变数组实现的列表。</p>
+<p>但Vector同步，适合在多线程下使用，非多线程的情况下优先用ArrayList。</p>
+<h2 id="二、集合set"><a href="#二、集合set" class="headerlink" title="二、集合set"></a>二、集合set</h2><h5 id="三个特性："><a href="#三个特性：" class="headerlink" title="三个特性："></a>三个特性：</h5><p>​    1.<strong>确定性</strong>：对任意对象都能判定其是否属于某一个集合。</p>
+<p>​    2.<strong>互异性</strong>：集合内每个元素都是不相同的(元素不重复)。</p>
+<p>​    <strong>HashSet</strong>根据<strong>hashCode、equals</strong>这两个方法 (继承自Object类，<strong>所有类都有</strong>) 判定元素是否同。</p>
+<p>​    <strong>TreeSet</strong>根据<strong>CompareTo方法</strong> (需要元素继承自<strong>Comparable接口</strong>) 判定是否相同。</p>
+<p>​    3.<strong>无序性</strong>：集合内没有先后顺序。</p>
+<h3 id="1-HashSet"><a href="#1-HashSet" class="headerlink" title="1.HashSet"></a>1.HashSet</h3><h5 id="基于散列函数的集合。"><a href="#基于散列函数的集合。" class="headerlink" title="基于散列函数的集合。"></a>基于散列函数的集合。</h5><p>❤ 可容纳null元素。</p>
+<p>✖ 无序，不支持同步。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;Integer&gt; hs = new HashSet&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">set.add();					//添加多次重复的元素相当于只添加一次</span><br><span class="line">set.size();					//返回大小</span><br><span class="line">set.clear();				//清楚整个HashSet</span><br><span class="line">set.contains();				//判断是否包含一个元素</span><br><span class="line">set.remove();				//删除一个元素</span><br><span class="line">set.retainAll();			//计算两个集合交集</span><br></pre></td></tr></table></figure>
 
-<p>以上。</p>
+<h3 id="2-LinkedHashSet"><a href="#2-LinkedHashSet" class="headerlink" title="2.LinkedHashSet"></a>2.LinkedHashSet</h3><p><strong>继承HashSet，方法和HashSet基本一致。基于散列函数和双向链表的集合。</strong></p>
+<p>❤ 可容纳null，有序(插入次序)。</p>
+<p>✖ 不支持同步。</p>
+<h3 id="3-TreeSet"><a href="#3-TreeSet" class="headerlink" title="3.TreeSet"></a>3.TreeSet</h3><h5 id="基于树结构的集合。"><a href="#基于树结构的集合。" class="headerlink" title="基于树结构的集合。"></a>基于树结构的集合。</h5><p>❤ 有序(按储存对象大小升序输出)。</p>
+<p>✖ 不可容纳null元素，不支持同步，</p>
+<h2 id="三、映射Map"><a href="#三、映射Map" class="headerlink" title="三、映射Map"></a>三、映射Map</h2><h5 id="数学定义：两个集合之间的元素对应关系。一个输入对应到一个输出。"><a href="#数学定义：两个集合之间的元素对应关系。一个输入对应到一个输出。" class="headerlink" title="数学定义：两个集合之间的元素对应关系。一个输入对应到一个输出。"></a>数学定义：两个集合之间的元素对应关系。一个输入对应到一个输出。</h5><p><strong>{Key ，Value} ，键值对，K-V对。</strong></p>
+<h3 id="1-Hashtable"><a href="#1-Hashtable" class="headerlink" title="1.Hashtable"></a>1.Hashtable</h3><p>❤ 同步，多线程安全</p>
+<p>✖ 慢，适用数据量小，K-V对 K V都不能为null，无序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Hashtable&lt;Integer,String&gt; ht = new Hashtable&lt;Integer,String&gt;();</span><br><span class="line"></span><br><span class="line">ht.clear();</span><br><span class="line">ht.put();				//增加新的K-V对</span><br><span class="line">ht.get();				//根据Key获取相应的值</span><br><span class="line">ht.containsKey();		//是否包含某一个Key</span><br><span class="line">ht.contains();			//等于containsValue;</span><br><span class="line">ht.containsValue();		//是否包含某一个值</span><br><span class="line">ht.remove();</span><br><span class="line">ht.size();</span><br><span class="line"></span><br><span class="line">ht.put(3000,&quot;aaa&quot;);</span><br><span class="line">ht.put(3000,&quot;bbb&quot;);		//如果对同一Key值put两次，会对之前的进行覆盖，3000-&gt;bbb</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-HashMap"><a href="#2-HashMap" class="headerlink" title="2.HashMap"></a>2.HashMap</h3><p>❤ 快，数据量大，K V允许为null</p>
+<p>✖ 不支持同步，多线程不安全</p>
+<h3 id="3-LinkedHashMap"><a href="#3-LinkedHashMap" class="headerlink" title="3.LinkedHashMap"></a>3.LinkedHashMap</h3><h5 id="基于双向链表的-维持插入顺序-的HashMap。"><a href="#基于双向链表的-维持插入顺序-的HashMap。" class="headerlink" title="基于双向链表的 维持插入顺序 的HashMap。"></a>基于双向链表的 维持插入顺序 的HashMap。</h5><h3 id="4-TreeMap"><a href="#4-TreeMap" class="headerlink" title="4.TreeMap"></a>4.TreeMap</h3><h5 id="基于红黑树的Map-可以根据key的-自然排序-从小到大-或者-compareTo方法-进行排序输出。"><a href="#基于红黑树的Map-可以根据key的-自然排序-从小到大-或者-compareTo方法-进行排序输出。" class="headerlink" title="基于红黑树的Map,可以根据key的 自然排序(从小到大) 或者 compareTo方法  进行排序输出。"></a>基于红黑树的Map,可以根据key的 自然排序(从小到大) 或者 compareTo方法  进行排序输出。</h5><h3 id="5-Properties"><a href="#5-Properties" class="headerlink" title="5.Properties"></a>5.Properties</h3><h5 id="继承自HashTable，也继承了其方法"><a href="#继承自HashTable，也继承了其方法" class="headerlink" title="继承自HashTable，也继承了其方法"></a>继承自HashTable，也继承了其方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Properties pps = new Properties();</span><br><span class="line">InputStream in = new FileInputStream(filePath);</span><br><span class="line"></span><br><span class="line">//从输入流中读取属性列表(键和元素对)</span><br><span class="line">pps.load(in);										//加载原文件中的所有K-V对。</span><br><span class="line">OutputStream out = new FileOutputStream(filePath);</span><br><span class="line">pps.setProperty(pKey,pValue);						//写入一个K-V对</span><br><span class="line">pps.store(out,&quot;Update&quot; + pKey + &quot;name&quot;);			//将所有K-V对写入到文件</span><br><span class="line">getProperty();										//获取某一个Key对应的Value</span><br></pre></td></tr></table></figure>
+
+<p>❤ 同步，K-V对保存在文件中</p>
+<p>✖ 数据量小</p>
+<p>适用于数据量小的配置文件</p>
+<h3 id="四、工具类"><a href="#四、工具类" class="headerlink" title="四、工具类"></a>四、工具类</h3><p>这段笔记借鉴(ctrl + cv)的 Gene Xu 博主的内容，介绍详细且简单易懂，以下是原链接</p>
+<p><a href="https://blog.csdn.net/Goodbye_Youth/article/details/81003817" target="_blank" rel="noopener">https://blog.csdn.net/Goodbye_Youth/article/details/81003817</a></p>
+<h4 id="1-填充方法fill"><a href="#1-填充方法fill" class="headerlink" title="1.填充方法fill"></a>1.填充方法fill</h4><p><strong>Arrays.fill(Object[] array, Object obj)</strong></p>
+<ul>
+<li>用指定元素填充整个数组 (会替换掉数组中原来的元素)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer[] data = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">Arrays.fill(data, <span class="number">9</span>);</span><br><span class="line">System.out.println(Arrays.toString(data)); <span class="comment">// [9, 9, 9, 9]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Arrays.fill(Object[] array, int fromIndex, int toIndex, Object obj)</strong></p>
+<ul>
+<li>用指定元素填充数组，从起始位置到结束位置，<strong>取头不取尾</strong> (会替换掉数组中原来的元素)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer[] data = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">Arrays.fill(data, <span class="number">0</span>, <span class="number">2</span>, <span class="number">9</span>);</span><br><span class="line">System.out.println(Arrays.toString(data)); *<span class="comment">// [9, 9, 3, 4]*</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-排序方法sort"><a href="#2-排序方法sort" class="headerlink" title="2.排序方法sort"></a>2.排序方法sort</h4><p><strong>Arrays.sort(Object[] array)</strong></p>
+<ul>
+<li>对数组元素进行排序 <strong>(串行排序)</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String[] data = &#123;<span class="string">"1"</span>, <span class="string">"4"</span>, <span class="string">"3"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">System.out.println(Arrays.toString(data)); <span class="comment">// [1, 4, 3, 2]</span></span><br><span class="line">Arrays.sort(data);</span><br><span class="line">System.out.println(Arrays.toString(data)); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Arrays.sort(T[] array, Comparator&lt;? super T&gt; comparator)</strong></p>
+<ul>
+<li>使用<strong>自定义比较器</strong>，对数组元素进行排序 <strong>(串行排序)</strong></li>
+</ul>
+<p><strong>Arrays.sort(Object[] array, int fromIndex, int toIndex)</strong></p>
+<ul>
+<li>对指定范围内的数组元素进行排序 <strong>(串行排序)</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String[] data = &#123;<span class="string">"1"</span>, <span class="string">"4"</span>, <span class="string">"3"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">System.out.println(Arrays.toString(data)); <span class="comment">// [1, 4, 3, 2]</span></span><br><span class="line"><span class="comment">// 对下标[0, 3)的元素进行排序，即对1，4，3进行排序，2保持不变</span></span><br><span class="line">Arrays.sort(data, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line">System.out.println(Arrays.toString(data)); <span class="comment">// [1, 3, 4, 2]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Arrays.parallelSort(T[] array)</strong></p>
+<p><strong>注意：其余重载方法与 Arrays.sort() 相同</strong></p>
+<ul>
+<li>对数组元素进行排序 <strong>(并行排序)</strong>，当数据规模较大时，会有更好的性能</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] data = &#123;<span class="string">"1"</span>, <span class="string">"4"</span>, <span class="string">"3"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">Arrays.parallelSort(data);</span><br><span class="line">System.out.println(Arrays.toString(data)); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-二分查找法binarySearch"><a href="#3-二分查找法binarySearch" class="headerlink" title="3.二分查找法binarySearch"></a>3.二分查找法<strong>binarySearch</strong></h4><p><strong>注意：在调用该方法之前，必须先调用 Arrays.sort() 方法进行排序，如果数组没有排序，那么结果是不确定的，此外如果数组中包含多个指定元素，则无法保证将找到哪个元素</strong></p>
+<ul>
+<li><p>使用<strong>二分法</strong>查找数组内指定元素的索引值</p>
+</li>
+<li><p>从源码中可以看到</p>
+<ul>
+<li><strong>当搜索元素是数组元素时，返回该元素的索引值</strong></li>
+<li><strong>当搜索元素不是数组元素时，返回 - (索引值 + 1)</strong></li>
+</ul>
+</li>
+<li><p>具体的用法可以看下面的例子</p>
+<ul>
+<li><strong>搜索元素是数组元素，返回该元素索引值</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer[] data = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>&#125;;</span><br><span class="line">Arrays.sort(data);</span><br><span class="line">System.out.println(Arrays.binarySearch(data, <span class="number">1</span>)); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>搜索元素不是数组元素，且小于数组中的最小值</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer[] data = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>&#125;;</span><br><span class="line">Arrays.sort(data);</span><br><span class="line"><span class="comment">// 此时程序会把数组看作 &#123;0, 1, 3, 5, 7&#125;，此时0的索引值为0，则搜索0时返回 -(0 + 1) = -1</span></span><br><span class="line">System.out.println(Arrays.binarySearch(data, <span class="number">0</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>搜索元素不是数组元素，且大于数组中的最大值</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer[] data = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>&#125;;</span><br><span class="line">Arrays.sort(data);</span><br><span class="line"><span class="comment">// 此时程序会把数组看作 &#123;1, 3, 5, 7， 9&#125;，此时9的索引值为4，则搜索8时返回 -(4 + 1) = -5</span></span><br><span class="line">System.out.println(Arrays.binarySearch(data, <span class="number">9</span>)); <span class="comment">// -5</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>搜索元素不是数组元素，但在数组范围内</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer[] data = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>&#125;;</span><br><span class="line">Arrays.sort(data);</span><br><span class="line"><span class="comment">// 此时程序会把数组看作 &#123;1, 2, 3, 5, 7&#125;，此时2的索引值为1，则搜索2时返回 -(1 + 1) = -2</span></span><br><span class="line">System.out.println(Arrays.binarySearch(data, <span class="number">2</span>)); <span class="comment">// -2</span></span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -342,7 +412,7 @@ F                                          F-&gt;(E)    F-&gt;i                 
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2019/10/16/LL1分析法/" title="LL1分析法" target="_blank">http://yoursite.com/2019/10/16/LL1分析法/</a>
+          <a href="http://yoursite.com/2019/10/26/java常用数据结构/" title="java常用数据结构" target="_blank">http://yoursite.com/2019/10/26/java常用数据结构/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -361,11 +431,11 @@ F                                          F-&gt;(E)    F-&gt;i                 
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编译原理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LL1</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -421,7 +491,7 @@ F                                          F-&gt;(E)    F-&gt;i                 
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/16/LL1分析法/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/26/java常用数据结构/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -436,18 +506,9 @@ F                                          F-&gt;(E)    F-&gt;i                 
 
 <nav id="article-nav">
   
-    <a href="/2019/10/26/java常用数据结构/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java常用数据结构
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/05/数据结构-栈/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据结构-栈</div>
+    <a href="/2019/10/16/LL1分析法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LL1分析法</div>
       <i class="icon-circle-right"></i>
     </a>
   
