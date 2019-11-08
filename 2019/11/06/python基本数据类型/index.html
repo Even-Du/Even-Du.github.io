@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="一、数字类型及其操作1.整数类型">
-<meta name="keywords" content="python,基本数据类型">
+<meta name="keywords" content="python,基本数据类型，time库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基本数据类型">
 <meta property="og:url" content="http://yoursite.com/2019/11/06/python基本数据类型/index.html">
@@ -19,9 +19,10 @@
 <meta property="og:description" content="一、数字类型及其操作1.整数类型">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/11/06/python基本数据类型/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/06/python基本数据类型/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/06/python基本数据类型/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/06/python基本数据类型/3.png">
-<meta property="og:updated_time" content="2019-11-06T12:55:45.169Z">
+<meta property="og:updated_time" content="2019-11-08T11:35:52.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基本数据类型">
 <meta name="twitter:description" content="一、数字类型及其操作1.整数类型">
@@ -336,10 +337,9 @@
 </tr>
 </tbody></table>
 <h2 id="二、字符串类型及其操作"><a href="#二、字符串类型及其操作" class="headerlink" title="二、字符串类型及其操作"></a>二、字符串类型及其操作</h2><h3 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1.字符串"></a>1.字符串</h3><p>字符串由一对<strong>单引号</strong>或者<strong>双引号</strong>表示，是字符的<strong>有序序列</strong>，可以对其中的字符进行<strong>索引</strong></p>
-<p><strong>三引号</strong>表示<strong>多行字符串</strong>        为甚么？</p>
+<p><strong>三引号</strong>表示<strong>多行字符串</strong>或多行注释        在程序中单独出现的字符串，就被当成注释</p>
 <p><img src="/2019/11/06/python基本数据类型/1.png" alt="1"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'这里有个双引号("")和单引号('</span><span class="string">')'</span> <span class="comment">#字符串中包含引号</span></span><br></pre></td></tr></table></figure>
-
+<p><img src="/2019/11/06/python基本数据类型/4.png" alt="4"></p>
 <h3 id="2-字符串的使用"><a href="#2-字符串的使用" class="headerlink" title="2.字符串的使用"></a>2.字符串的使用</h3><p>①. 索引：返回单个字符</p>
 <p>②. 切片：返回字符串中的一串字符子串 &lt;字符串&gt;[M:N]</p>
 <p> M缺失表示至开头，N缺失表示至结尾</p>
@@ -514,7 +514,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">基本数据类型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基本数据类型，time库</a>
         		</li>
       		
 		</ul>
@@ -584,6 +584,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2019/11/06/python程序的控制结构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python程序的控制结构
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/26/java常用数据结构/" id="article-nav-older" class="article-nav-link-wrap">
@@ -736,7 +745,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
+                <a href="javascript:void(0)" class="js-tag color2">random</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">函数的定义与使用</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -752,11 +765,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基本数据类型，time库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LL1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,6 +801,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">选择分支，循环，random函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -788,19 +813,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">百年孤独</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">百年孤独</a>
               </li>
              
               <li class="article-tag-list-item">
