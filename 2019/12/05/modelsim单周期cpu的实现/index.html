@@ -21,8 +21,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/12/05/modelsim单周期cpu的实现/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/12/05/modelsim单周期cpu的实现/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/12/05/modelsim单周期cpu的实现/3.png">
-<meta property="og:image" content="file:///C:%5CUsers%5Cuser%5CAppData%5CRoaming%5CTencent%5CUsers%5C1336441232%5CQQ%5CWinTemp%5CRichOle%5CTM~%5D3$M%0JP30H3~L9983P8.png">
-<meta property="og:updated_time" content="2019-12-05T12:42:02.701Z">
+<meta property="og:image" content="http://yoursite.com/2019/12/05/modelsim单周期cpu的实现/4.png">
+<meta property="og:updated_time" content="2019-12-05T13:16:41.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="modelsim单周期cpu的实现">
 <meta name="twitter:description" content="modelsim单周期cpu的实现一、实验目的：  通过设计并实现支持一条指令的 CPU，理解和掌握 CPU 设计的基本原理和过程。">
@@ -250,8 +250,7 @@
 <a id="more"></a>
 
 <p><strong>二、实验内容：</strong> </p>
-<p>设计和实现一个支持<strong>加法指令</strong>的单周期 CPU。要求该加法指令（表示为 <strong>add r1，r2，</strong></p>
-<p><strong>r3</strong>）格式约定如下：</p>
+<p>设计和实现一个支持<strong>加法指令</strong>的单周期 CPU。要求该加法指令（表示为 <strong>add r1，r2，r3</strong>）格式约定如下：</p>
 <ul>
 <li>采用寄存器寻址，r1，r2，r3 为寄存器编号，r1 和 r2 存放两个源操作数，r3</li>
 </ul>
@@ -262,31 +261,19 @@
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15</span>        <span class="number">9</span> <span class="number">8</span>  <span class="number">6</span> <span class="number">5</span>  <span class="number">3</span> <span class="number">2</span> <span class="number">0</span></span><br><span class="line">|  OpCode  | r1 | r2 | r3 |</span><br><span class="line"><span class="comment">//操作码7位，三个地址各3位。</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>三、实验原理</strong> </p>
-<p>单周期 CPU 是指所有指令均在一个时钟周期内完成的 CPU。CPU 由数据通路及其控</p>
-<p>制部件两部分构成，因而要完成一个支持若干条指令 CPU 的设计，需要依次完成以下两件</p>
-<p>事：</p>
+<p>单周期 CPU 是指所有指令均在一个时钟周期内完成的 CPU。CPU 由数据通路及其控制部件两部分构成，因而要完成一个支持若干条指令 CPU 的设计，需要依次完成以下两件事：</p>
 <p>1）根据指令功能和格式设计 CPU 的数据通路；</p>
 <p>2）根据指令功能和数据通路设计控制部件。 </p>
 <p><strong>3.1 根据功能和格式完成 CPU 的数据通路设计</strong> </p>
-<p>本实验需要设计的 CPU 只需要支持一条加法指令，而该指令的功能是在一个时钟周期</p>
-<p>内从寄存器组中 r1 和 r2 中取出两个操作数，然后送到 ALU 进行加法运算，最后把计算结</p>
-<p>果保存到 r1 寄存器中。</p>
-<p>此外，还需要确定各个部件的位数，为了简单起见，我们假设目标 CPU 的机器字长、</p>
-<p>存储字长和指令字长相等均为 16 位，存储单元个数假设为 256，按字寻址，并取 PC 位数</p>
-<p>为 8。 </p>
+<p>本实验需要设计的 CPU 只需要支持一条加法指令，而该指令的功能是在一个时钟周期内从寄存器组中 r1 和 r2 中取出两个操作数，然后送到 ALU 进行加法运算，最后把计算结果保存到 r1 寄存器中。</p>
+<p>此外，还需要确定各个部件的位数，为了简单起见，我们假设目标 CPU 的机器字长、存储字长和指令字长相等均为 16 位，存储单元个数假设为 256，按字寻址，并取 PC 位数为 8。 </p>
 <p><strong>3.2 根据指令功能、数据通路完成控制单元的设计</strong> </p>
-<p>控制单元的功能是为当前要执行的指令产生微操作命令从而完成该指令的执行。为了能</p>
-<p>够完成加法指令的执行，结合<strong>图 1</strong>，控制单元需要在取出指令后根据指令操作码（本例中是</p>
-<p>加法指令），控制 ALU（参考实验二）做加法（通过给 alu_op 信号线相应赋值），并把结果</p>
-<p>写回寄存器组（参考实验三）中（通过给 wr_en 赋值为 true）。图 2 给出了整合控制单元后</p>
-<p>目标 CPU 的原理图，系统时钟信号也已标注。<img src="/2019/12/05/modelsim单周期cpu的实现/2.png" alt="2"></p>
+<p>控制单元的功能是为当前要执行的指令产生微操作命令从而完成该指令的执行。为了能够完成加法指令的执行，结合<strong>图 1</strong>，控制单元需要在取出指令后根据指令操作码（本例中是加法指令），控制 ALU（参考实验二）做加法（通过给 alu_op 信号线相应赋值），并把结果写回寄存器组（参考实验三）中（通过给 wr_en 赋值为 true）。图 2 给出了整合控制单元后目标 CPU 的原理图，系统时钟信号也已标注。<img src="/2019/12/05/modelsim单周期cpu的实现/2.png" alt="2"></p>
 <p><strong>图 3.2. 单指令 CPU 原理图</strong> </p>
 <p><strong>四、实验步骤</strong> </p>
-<p>在第三部分通过对该 CPU 实现细节的分析、设计，并得到该 CPU 的原理图后，就可</p>
-<p>以依次实现各个模块，并进行仿真验证了。 </p>
+<p>在第三部分通过对该 CPU 实现细节的分析、设计，并得到该 CPU 的原理图后，就可以依次实现各个模块，并进行仿真验证了。 </p>
 <p><strong>4.1 CPU 各模块 Verilog 实现</strong> </p>
-<p>在前面实验中，已经分别设计和实现了 PC、指令存储器、寄存器组和 ALU，这里只给</p>
-<p>出各个模块的功能描述及其接口定义，具体实现可以直接使用或者调整前面试验的实现代码。</p>
+<p>在前面实验中，已经分别设计和实现了 PC、指令存储器、寄存器组和 ALU，这里只给出各个模块的功能描述及其接口定义，具体实现可以直接使用或者调整前面试验的实现代码。</p>
 <p><strong>1）PC 模块</strong> </p>
 <p>表 4.1 PC 模块功能描述</p>
 <p><strong>输入</strong> 时钟信号 clk、重置信号 rst</p>
@@ -343,7 +330,7 @@
 <h4 id="输出波形：add指令"><a href="#输出波形：add指令" class="headerlink" title="输出波形：add指令"></a>输出波形：add指令</h4><p><img src="/2019/12/05/modelsim单周期cpu的实现/3.png" alt="3"></p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	opcode = <span class="number">0100000</span>,alu_op = <span class="number">010</span>,加操作</span><br><span class="line">	将RegFile中的[write_reg] = [read_reg1] + [read_reg2]</span><br><span class="line">					r3 	    =     [r1]    +     [r2]</span><br><span class="line">					Zout    =    Data1    +    Data2 </span><br><span class="line"><span class="comment">// 可以看到，r1,r2,r3(write_reg)地址不变,cpu每个周期都将</span></span><br><span class="line">RegFile[<span class="number">001</span>] = ReFile[<span class="number">000</span>] + RegFile[<span class="number">001</span>]</span><br><span class="line">RegFile[<span class="number">001</span>]每个周期都会增加<span class="number">1</span>。</span><br></pre></td></tr></table></figure>
 
-<h4 id="输出波形：st存数指令"><a href="#输出波形：st存数指令" class="headerlink" title="输出波形：st存数指令"></a>输出波形：st存数指令</h4><p><img src="file:///C:%5CUsers%5Cuser%5CAppData%5CRoaming%5CTencent%5CUsers%5C1336441232%5CQQ%5CWinTemp%5CRichOle%5CTM~%5D3$M%0JP30H3~L9983P8.png" alt="img"></p>
+<h4 id="输出波形：st存数指令"><a href="#输出波形：st存数指令" class="headerlink" title="输出波形：st存数指令"></a>输出波形：st存数指令</h4><p><img src="/2019/12/05/modelsim单周期cpu的实现/4.png" alt="4"></p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	opcode = <span class="number">0110000</span>,alu_op = <span class="number">011</span>,存数操作</span><br><span class="line">	Zout = Data1 = RegFile[read_reg1]</span><br><span class="line">	Ram[addr] = Zout 					<span class="comment">//当m_wr_en = 1 时存数</span></span><br><span class="line">	outdata = Ram[addr]					<span class="comment">//outdata观察数据是否存入RAM</span></span><br><span class="line"><span class="comment">//可以看到，每个下降沿cpu都会将Zout写入Ram[addr]，Ram存储单元的值默认被初始化0</span></span><br><span class="line"><span class="comment">//可根据下降沿将周期分为前半段和后半段</span></span><br><span class="line"><span class="comment">//每个周期的前半段outdata = Ram[addr] = 0,此时下降沿尚未到来，Zout没写入</span></span><br><span class="line"><span class="comment">//每个周期的后半段outdata = Ram[addr] = Zout,此时有下降沿，Zout被写入</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul>
@@ -660,19 +647,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LL1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,6 +687,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
               </li>
              
@@ -708,7 +699,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,10 +708,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,6 +723,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭载好博客的第一天</a>
               </li>
              
@@ -745,14 +740,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
