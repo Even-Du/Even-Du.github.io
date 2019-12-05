@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/12/05/modelsim单周期cpu的实现/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/12/05/modelsim单周期cpu的实现/3.png">
 <meta property="og:image" content="file:///C:%5CUsers%5Cuser%5CAppData%5CRoaming%5CTencent%5CUsers%5C1336441232%5CQQ%5CWinTemp%5CRichOle%5CTM~%5D3$M%0JP30H3~L9983P8.png">
-<meta property="og:updated_time" content="2019-12-05T12:36:51.180Z">
+<meta property="og:updated_time" content="2019-12-05T12:42:02.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="modelsim单周期cpu的实现">
 <meta name="twitter:description" content="modelsim单周期cpu的实现一、实验目的：  通过设计并实现支持一条指令的 CPU，理解和掌握 CPU 设计的基本原理和过程。">
@@ -355,6 +355,11 @@
 </ul>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> CPU(</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> clk,rst,					<span class="comment">//输入clk,rst</span></span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span>[<span class="number">7</span>:<span class="number">0</span>] curPc				<span class="comment">//输出curPc,便于查看</span></span><br><span class="line">);</span><br><span class="line">    <span class="keyword">wire</span>[<span class="number">15</span>:<span class="number">0</span>] Data1,Data2,Zout,		<span class="comment">//Data1,Data2,Zout做连线</span></span><br><span class="line">PC mypc(						</span><br><span class="line">  <span class="variable">.clk</span>(clk),<span class="variable">.rst</span>(rst),</span><br><span class="line">  <span class="variable">.pc</span>(curPc)</span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">RegFile regfile(</span><br><span class="line">  <span class="variable">.clk</span>(clk),</span><br><span class="line">  <span class="variable">.wr_en</span>(wr_en),</span><br><span class="line">  <span class="variable">.read_reg1</span>(read_reg1), <span class="variable">.read_reg2</span>(read_reg2), <span class="variable">.write_reg</span>(write_reg),  </span><br><span class="line">  <span class="variable">.write_data</span>(Zout),</span><br><span class="line">    <span class="comment">//Data1(reg1_to_in1): (RegFile)reg -&gt; (ALU)in1</span></span><br><span class="line">  <span class="variable">.reg1</span>(Data1),<span class="variable">.reg2</span>(Data2)                          </span><br><span class="line">);</span><br><span class="line">    </span><br><span class="line">ALU alu(</span><br><span class="line">  <span class="variable">.in1</span>(Data1), <span class="variable">.in2</span>(Data2),     </span><br><span class="line">  <span class="variable">.alu_op</span>(alu_op),</span><br><span class="line">    <span class="comment">//Zout(Z_to_write_data):	(ALU)Z -&gt; RegFile(writre_data)</span></span><br><span class="line">  <span class="variable">.Z</span>(Zout)                      </span><br><span class="line">);        </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 
+<p>感谢这两位博主对我的启发：</p>
+<p>单周期CPU设计(Verilog)<a href="https://blog.csdn.net/linwh8/article/details/71308282" target="_blank" rel="noopener">https://blog.csdn.net/linwh8/article/details/71308282</a></p>
+<p>关于modelsim仿真时出现红线（不定态hx）或者蓝线（高阻态hz）的问题</p>
+<p><a href="https://blog.csdn.net/weixin_38486204/article/details/88620368" target="_blank" rel="noopener">https://blog.csdn.net/weixin_38486204/article/details/88620368</a></p>
+<p>以上。</p>
 
     
 
@@ -655,14 +660,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
@@ -683,7 +680,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">random库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,19 +704,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">time库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,7 +720,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,19 +732,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,6 +748,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
@@ -767,7 +764,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,6 +777,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
               </li>
              
               <li class="article-tag-list-item">
