@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="一、函数的定义123def &amp;lt;函数名&amp;gt;(&amp;lt;参数(0个或者多个)&amp;gt;):	&amp;lt;函数体&amp;gt;	return &amp;lt;返回值&amp;gt;">
-<meta name="keywords" content="python,函数的定义与使用">
+<meta name="keywords" content="python,函数的定义与使用,递归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python函数">
 <meta property="og:url" content="http://yoursite.com/2019/11/08/python函数/index.html">
@@ -20,7 +20,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/11/08/python函数/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/08/python函数/2.png">
-<meta property="og:updated_time" content="2019-11-08T09:19:05.020Z">
+<meta property="og:image" content="file:///C:%5CUsers%5Cuser%5CAppData%5CRoaming%5CTencent%5CUsers%5C1336441232%5CQQ%5CWinTemp%5CRichOle%5CTO92X8XQW%@SZM_OK%5D6D%5DOM.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/08/python函数/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/08/python函数/5.png">
+<meta property="og:updated_time" content="2019-11-21T07:56:55.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python函数">
 <meta name="twitter:description" content="一、函数的定义123def &amp;lt;函数名&amp;gt;(&amp;lt;参数(0个或者多个)&amp;gt;):	&amp;lt;函数体&amp;gt;	return &amp;lt;返回值&amp;gt;">
@@ -223,7 +226,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">839字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -232,7 +235,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -258,7 +261,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact</span><span class="params">(n, m = <span class="number">1</span>)</span>:</span>					<span class="comment"># 可选参数m</span></span><br><span class="line">	s = <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">		s *= i</span><br><span class="line">	<span class="keyword">return</span> s//m	</span><br><span class="line"></span><br><span class="line">fact(<span class="number">10</span>) 							<span class="comment"># 调用函数，若不输入m的的值则默认为1</span></span><br><span class="line">fact(<span class="number">10</span>, <span class="number">5</span>)							<span class="comment"># 调用，且m值为5</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>③.可变参数传递</strong></p>
-<p>函数定义时剋设计<font color="red">可变数量参数</font>，即不确定参数总数量。</p>
+<p>函数定义时可设计<font color="red">可变数量参数</font>，即不确定参数总数量。</p>
+<p><font color="red">可变参数只能放到参数列表最后</font></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> &lt;函数名&gt; <span class="params">(&lt;参数&gt;, *b)</span>:</span></span><br><span class="line">	&lt;函数体&gt;</span><br><span class="line">	<span class="keyword">return</span> &lt;返回值&gt;</span><br></pre></td></tr></table></figure>
 
 <p>例子：计算n!乘某些数</p>
@@ -297,6 +301,25 @@
 <p>例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">lambda</span> x, y: x+y</span><br><span class="line">f(<span class="number">10</span>, <span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">》》》<span class="number">25</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="四、函数递归"><a href="#四、函数递归" class="headerlink" title="四、函数递归"></a>四、函数递归</h2><p> <img src="file:///C:%5CUsers%5Cuser%5CAppData%5CRoaming%5CTencent%5CUsers%5C1336441232%5CQQ%5CWinTemp%5CRichOle%5CTO92X8XQW%@SZM_OK%5D6D%5DOM.png" alt="img"> <img src="/2019/11/08/python函数/4.png" alt="4"></p>
+<p>递归两个过程，递归进入和返回。好好理解这张图。</p>
+<ol>
+<li><strong>函数 + 分支结构</strong> —— if else</li>
+<li><strong>递归链条</strong> —— n -&gt; n-1</li>
+<li><strong>递归基例</strong> —— 1</li>
+</ol>
+<h3 id="例1：字符串反转"><a href="#例1：字符串反转" class="headerlink" title="例1：字符串反转"></a>例1：字符串反转</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rvs</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:						<span class="comment"># 字符串为空则返回自身</span></span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> rvs(s[<span class="number">1</span>:]) + s[<span class="number">0</span>]	<span class="comment"># 递归调用除反转除第一位的字符串 + 首字符</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = <span class="string">"a b c d"</span></span><br><span class="line">print(rvs(a))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;d c b a</span><br></pre></td></tr></table></figure>
+
+<h3 id="例2：汉诺塔"><a href="#例2：汉诺塔" class="headerlink" title="例2：汉诺塔"></a>例2：汉诺塔</h3><p><img src="/2019/11/08/python函数/5.png" alt="5"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span><span class="params">(n, src, dst, mit)</span>:</span>         <span class="comment"># n个圆盘,从原柱子src搬运到目标柱子dst,可以借助的中间柱子为mit</span></span><br><span class="line">    <span class="keyword">global</span> count;</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:                      <span class="comment"># 原柱子只剩最顶上的圆盘1,则可直接搬运</span></span><br><span class="line">        print(<span class="string">"&#123;&#125;:&#123;&#125;-&gt;&#123;&#125;"</span>.format(n, src, dst))      <span class="comment"># 输出搬运过程</span></span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:                           <span class="comment"># 原柱子上仍有n个圆盘,则需中转</span></span><br><span class="line">       	<span class="comment"># 先将n-1个圆盘搬运到中间柱子mit</span></span><br><span class="line">    	hanoi(n<span class="number">-1</span>, src, mit, dst)          </span><br><span class="line">        <span class="comment"># 再将第n个圆盘从src搬运到dst,输出过程</span></span><br><span class="line">        print(<span class="string">"&#123;&#125;:&#123;&#125;-&gt;&#123;&#125;"</span>.format(n, src, dst))     </span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 再将剩下的n-1个圆盘从mit搬运到src</span></span><br><span class="line">        hanoi(n<span class="number">-1</span>, mit, dst, src)                   </span><br><span class="line"></span><br><span class="line">hanoi(<span class="number">3</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'B'</span>)              <span class="comment"># 将3个圆盘从A搬到C,中间柱子为B</span></span><br><span class="line">print(<span class="string">"搬运次数为：&#123;&#125;"</span>.format(count))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;	1:A-&gt;C</span><br><span class="line">	2:A-&gt;B</span><br><span class="line">	1:C-&gt;B</span><br><span class="line">	3:A-&gt;C</span><br><span class="line">	1:B-&gt;A</span><br><span class="line">	2:B-&gt;C</span><br><span class="line">	1:A-&gt;C</span><br><span class="line">	搬运次数为：<span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>主要思想是：如何将搬运n个圆盘的操作转化为搬运n-1个圆盘的操作。</p>
+<ul>
+<li>若要搬运n个圆盘，则需先搬运上面的n-1个圆盘到中转mit柱子上</li>
+<li>再将第n个圆盘从src搬运到dst</li>
+<li>最后再将n-1个圆盘从mit搬运到dst</li>
+</ul>
+<p>我们只关心如何将搬运n个变为搬运n-1个盘子<strong>(递归链条)</strong>，具体n-1个继续怎么搬我们不关心，继续递归就好，<strong>递归基例</strong>为搬运圆盘1(即为搬运最小的圆盘)。</p>
 
     
 
@@ -368,6 +391,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">函数的定义与使用</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -436,6 +463,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2019/11/12/python常见错误踩坑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python常见错误踩坑
+        
+      </div>
+    </a>
   
   
     <a href="/2019/11/08/python-random库的使用/" id="article-nav-older" class="article-nav-link-wrap">
@@ -584,19 +620,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LL1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">random</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,11 +648,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">random库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">函数的定义与使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基本数据类型，time库</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,7 +664,51 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">选择分支，循环，random函数</a>
+                <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">time库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">分支结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">verilog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cpu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,27 +724,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">百年孤独</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,6 +745,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
               </li>
             
             <div class="clearfix"></div>
