@@ -191,6 +191,98 @@
             
 
   
+    <article id="post-python测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/13/python测试/" target="_blank">python测试</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/13/python测试/" class="archive-article-date">
+        <time datetime="2020-04-13T06:41:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="python测试代码"><a href="#python测试代码" class="headerlink" title="python测试代码"></a>python测试代码</h1><p>学习使用Python模块unittest中的工具来测试代码。</p>
+    
+    <a class="article-more-a" href="/2020/04/13/python测试/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/13/python测试/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python文件和异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -413,99 +505,9 @@
     
     <h1 id="python函数"><a href="#python函数" class="headerlink" title="python函数"></a>python函数</h1><hr>
 <p>函数是带名字的代码块，用于完成具体的工作。</p>
-<h3 id="1-定义函数"><a href="#1-定义函数" class="headerlink" title="1.定义函数"></a>1.定义函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_user</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="string">"""显示简单的问候语"""</span> </span><br><span class="line">	print(<span class="string">"Hello!"</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用</span></span><br><span class="line">greet_user()</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-传递参数"><a href="#2-传递参数" class="headerlink" title="2.传递参数"></a>2.传递参数</h3><p><strong>位置实参</strong>：这要求实参的顺序与形参的顺序相同。</p>
-<p><strong>关键字实参</strong>：其中每个实参都由变量名和值组成；还可使用列表和字典。</p>
-<h5 id="①-位置实参"><a href="#①-位置实参" class="headerlink" title="①.位置实参"></a>①.位置实参</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describe_pet</span><span class="params">(animal_type, pet_name)</span>:</span></span><br><span class="line">    <span class="string">"""显示宠物的信息"""</span></span><br><span class="line">    print(<span class="string">"\nI have a "</span> + animal_type + <span class="string">"."</span>)</span><br><span class="line">    print(<span class="string">"My "</span> + animal_type + <span class="string">"'s name is "</span> + pet_name.title() + <span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">describe_pet(<span class="string">'hamster'</span>, <span class="string">'harry'</span>)</span><br><span class="line">describe_pet(<span class="string">'dog'</span>, <span class="string">'willie'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>注：位置实参的顺序很重要，必须确认函数调用中实参的顺序与函数定义中的形参顺序一致。</p>
-<h5 id="②-关键字实参"><a href="#②-关键字实参" class="headerlink" title="②.关键字实参"></a>②.关键字实参</h5><p><strong>关键字实参</strong>是传递给函数的名称—值对。你直接在实参中将名称和值关联起来了，因此向函数传递实参时不会混淆（不会得到名为Hamster的harry这样的结果）。关键字实参让 你无需考虑函数调用中的实参顺序，还清楚地指出了函数调用中各个值的用途。 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describe_pet</span><span class="params">(animal_type, pet_name)</span>:</span></span><br><span class="line">    <span class="string">"""显示宠物的信息"""</span></span><br><span class="line">    print(<span class="string">"\nI have a "</span> + animal_type + <span class="string">"."</span>)</span><br><span class="line">    print(<span class="string">"My "</span> + animal_type + <span class="string">"'s name is "</span> + pet_name.title() + <span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">describe_pet(animal_type=<span class="string">'hamster'</span>, pet_name=<span class="string">'harry'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>使用关键字实参可以避免参数位置不对引发的逻辑错误，虽然实参顺序无关紧要,但使用时请务必准确指定函数定义的形参名。</p>
-<h5 id="③-默认值"><a href="#③-默认值" class="headerlink" title="③.默认值"></a>③.默认值</h5><p>编写函数时，可给每个形参指定<strong>默认值</strong> 。在调用函数中给形参提供了实参时，Python将使用指定的实参值；否则，将使用形参的默认值。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认宠物种类为dog</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describe_pet</span><span class="params">(pet_name, animal_type = <span class="string">'dog'</span>)</span>:</span></span><br><span class="line">    <span class="string">"""显示宠物的信息"""</span></span><br><span class="line">    print(<span class="string">"\nI have a "</span> + animal_type + <span class="string">"."</span>)</span><br><span class="line">    print(<span class="string">"My "</span> + animal_type + <span class="string">"'s name is "</span> + pet_name.title() + <span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">describe_pet(animal_type=<span class="string">'hamster'</span>, pet_name=<span class="string">'harry'</span>)</span><br><span class="line">describe_pet(pet_name=<span class="string">'willie'</span>)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">I have a hamster.</span><br><span class="line">My hamste<span class="string">r's name is Harry.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I have a dog.</span></span><br><span class="line"><span class="string">My dog'</span>s name <span class="keyword">is</span> Willie.</span><br></pre></td></tr></table></figure>
-
-<p>注：<strong>没有指定默认值</strong>的参数会被认为是<strong>位置实参</strong>，因此需要将其<strong>放到形参列表的前面</strong>，这样调用的时候实参(willie)就会关联到第一个形参(pet_name)了。</p>
-<p>即：使用默认值时，<font color="blue">在形参列表中必须先列出没有默认值的形参</font>，<font color="red">再列出有默认值的实参</font>。</p>
-<h5 id="④-等效的函数调用"><a href="#④-等效的函数调用" class="headerlink" title="④.等效的函数调用"></a>④.等效的函数调用</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describe_pet</span><span class="params">(pet_name, animal_type=<span class="string">'dog'</span>)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面对这个函数的所有调用都可行</span></span><br><span class="line"><span class="comment"># 一条名为Willie的小狗 </span></span><br><span class="line">describe_pet(<span class="string">'willie'</span>) </span><br><span class="line">describe_pet(pet_name=<span class="string">'willie'</span>) </span><br><span class="line"><span class="comment"># 一只名为Harry的仓鼠 </span></span><br><span class="line">describe_pet(<span class="string">'harry'</span>, <span class="string">'hamster'</span>) </span><br><span class="line">describe_pet(pet_name=<span class="string">'harry'</span>, animal_type=<span class="string">'hamster'</span>) describe_pet(animal_type=<span class="string">'hamster'</span>, pet_name=<span class="string">'harry'</span>)</span><br></pre></td></tr></table></figure>
-
-<h5 id="⑤-避免实参错误"><a href="#⑤-避免实参错误" class="headerlink" title="⑤.避免实参错误"></a>⑤.避免实参错误</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describe_pet</span><span class="params">(animal_type, pet_name)</span>:</span></span><br><span class="line">    print(<span class="string">"\nI have a "</span> + animal_type + <span class="string">"."</span>)</span><br><span class="line">    print(<span class="string">"My "</span> + animal_type + <span class="string">"'s name is "</span> + pet_name.title() + <span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">describe_pet()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"G:/PyCharmProject/book/unit8/test.py"</span>, line <span class="number">7</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    describe_pet()</span><br><span class="line">TypeError: describe_pet() missing <span class="number">2</span> required positional arguments: <span class="string">'animal_type'</span> <span class="keyword">and</span> <span class="string">'pet_name'</span></span><br></pre></td></tr></table></figure>
-
-<p>不给实参造成的错误，注意TypeError。</p>
-<h5 id="⑥-可选参数"><a href="#⑥-可选参数" class="headerlink" title="⑥.可选参数"></a>⑥.可选参数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_formatted_name</span><span class="params">(first_name, last_name, middle_name=<span class="string">''</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> middle_name:</span><br><span class="line">        full_name = first_name + <span class="string">' '</span> + middle_name + <span class="string">' '</span> + last_name</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        full_name = first_name + <span class="string">' '</span> + last_name</span><br><span class="line">    <span class="keyword">return</span> full_name.title()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(get_formatted_name(<span class="string">'even'</span>, <span class="string">'du'</span>))</span><br><span class="line">print(get_formatted_name(<span class="string">'john'</span>, <span class="string">'hooker'</span>, <span class="string">'lee'</span>))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Even Du</span><br><span class="line">John Lee Hooker</span><br></pre></td></tr></table></figure>
-
-<p>注：middle_name有给定的默认值，在函数调用时他是可选的，若不给定实参，则其默认为空字符串。默认实参只能放在末尾。</p>
-<h3 id="3-返回值"><a href="#3-返回值" class="headerlink" title="3.返回值"></a>3.返回值</h3><h5 id="①-函数返回的值被称为返回值-。"><a href="#①-函数返回的值被称为返回值-。" class="headerlink" title="①.函数返回的值被称为返回值 。"></a>①.函数返回的值被称为<strong>返回值</strong> 。</h5><p>在函数中，可使用return 语句将值返回到调用函数的代码行。 </p>
-<p>返回值让你能够将程序的大部分繁重工作移到函数中去完成，从而简化主程序。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_formatted_name</span><span class="params">(first_name, last_name)</span>:</span></span><br><span class="line">    full_name = first_name + <span class="string">' '</span> + last_name</span><br><span class="line">    <span class="keyword">return</span> full_name.title()</span><br><span class="line"></span><br><span class="line">print(get_formatted_name(<span class="string">'Even'</span>, <span class="string">'du'</span>))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Even Du</span><br></pre></td></tr></table></figure>
-
-<h5 id="②-返回字典"><a href="#②-返回字典" class="headerlink" title="②.返回字典"></a>②.返回字典</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_person</span><span class="params">(first_name, last_name, age =<span class="string">''</span>)</span>:</span></span><br><span class="line">    person = &#123;<span class="string">'first'</span>: first_name, <span class="string">'last'</span>: last_name&#125;</span><br><span class="line">    <span class="keyword">if</span> age:</span><br><span class="line">        person[<span class="string">'age'</span>] = age</span><br><span class="line">    <span class="keyword">return</span> person</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># age为可选参数</span></span><br><span class="line">musician = build_person(<span class="string">'jimi'</span>, <span class="string">'hendrix'</span>, age=<span class="number">27</span>)</span><br><span class="line">print(musician)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-传递列表"><a href="#4-传递列表" class="headerlink" title="4.传递列表"></a>4.传递列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Hello</span><span class="params">(names)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">        msg = <span class="string">'Hello '</span> + name.title() + <span class="string">'!'</span></span><br><span class="line">        print(msg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">users = [<span class="string">'tom'</span>, <span class="string">'jerry'</span>, <span class="string">'lucky'</span>]</span><br><span class="line">Hello(users)</span><br></pre></td></tr></table></figure>
-
-<h5 id="①-在函数中修改列表"><a href="#①-在函数中修改列表" class="headerlink" title="①.在函数中修改列表"></a>①.在函数中修改列表</h5><p>将列表传递给函数后，函数就可对其进行修改。在函数中对这个列表所做的任何修改都是永久性的，这让你能够高效地处理大量的数据。 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印模型并且修改两个列表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_models</span><span class="params">(unprinted_designs, completed_models)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> unprinted_designs:</span><br><span class="line">        model = unprinted_designs.pop()</span><br><span class="line">        print(<span class="string">"Printing model: "</span> + model)</span><br><span class="line">        completed_models.append(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印有完成的模型列表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_completed_models</span><span class="params">(completed_models)</span>:</span></span><br><span class="line">    print(<span class="string">"\nThe following models have been printed:"</span>)</span><br><span class="line">    <span class="keyword">for</span> model <span class="keyword">in</span> completed_models:</span><br><span class="line">        print(model)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">unprinted_designs = [<span class="string">'iphone'</span>, <span class="string">'mac'</span>, <span class="string">'ipod'</span>, <span class="string">'iwatch'</span>]</span><br><span class="line">completed_models = []</span><br><span class="line">print_models(unprinted_designs, completed_models)</span><br><span class="line">show_completed_models(completed_models)</span><br><span class="line">print(unprinted_designs)</span><br><span class="line">print(completed_models)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Printing model: iwatch</span><br><span class="line">Printing model: ipod</span><br><span class="line">Printing model: mac</span><br><span class="line">Printing model: iphone</span><br><span class="line"></span><br><span class="line">The following models have been printed:</span><br><span class="line">iwatch</span><br><span class="line">ipod</span><br><span class="line">mac</span><br><span class="line">iphone</span><br><span class="line">[]</span><br><span class="line">[<span class="string">'iwatch'</span>, <span class="string">'ipod'</span>, <span class="string">'mac'</span>, <span class="string">'iphone'</span>]</span><br></pre></td></tr></table></figure>
-
-<p>可以看出函数的确改变了两个列表。</p>
-<h5 id="②-禁止函数修改列表"><a href="#②-禁止函数修改列表" class="headerlink" title="②.禁止函数修改列表"></a>②.禁止函数修改列表</h5><p>用切片法传递列表的copy,避免原列表被修改</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表切片list_name[start:end] 默认为0和-1，即获得整个拷贝</span></span><br><span class="line">function_name(list_name[:])</span><br><span class="line"></span><br><span class="line">print_models(unprinted_designs[:], completed_models)</span><br></pre></td></tr></table></figure>
-
-<p>这样函数print_models() 依然能够完成其工作，因为它获得了所有未打印的设计的名称，但它使用的是列表unprinted_designs 的副本，而不是列 表unprinted_designs 本身。像以前一样，列表completed_models 也将包含打印好的模型的名称，但函数所做的修改不会影响到列表unprinted_designs 。 </p>
-<p><strong>注</strong>：虽然向函数传递列表的副本可保留原始列表的内容，但除非有充分的理由需要传递副本，否则还是应该将原始列表传递给函数，因为让函数使用现成列表可避免花时间和内存创建副本，从而提高效率，在处理大型列表时尤其如此。</p>
-<h3 id="5-传递任意数量的实参"><a href="#5-传递任意数量的实参" class="headerlink" title="5.传递任意数量的实参"></a>5.传递任意数量的实参</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_pizza</span><span class="params">(*toppings)</span>:</span></span><br><span class="line">    <span class="string">"""打印顾客点的所有配料"""</span></span><br><span class="line">    print(toppings)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">make_pizza(<span class="string">'pepperoni'</span>)</span><br><span class="line">make_pizza(<span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">(<span class="string">'pepperoni'</span>,)</span><br><span class="line">(<span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>形参名*toppings 中的星号让Python创建一个名为toppings 的空元组，并将收到的所有值都封装到这个元组中。</p>
-<p><strong>注</strong>:如果要让函数接受不同类型的实参，<font color="red">必须在函数定义中将接纳任意数量实参的形参放在最后</font>。Python先匹配位置实参和关键字实参，再将余下的实参都收集到最后一个形参中。 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_pizza</span><span class="params">(size, *toppings)</span>:</span></span><br><span class="line">    <span class="string">"""概述要制作的比萨"""</span></span><br><span class="line">    print(<span class="string">"\nMaking a "</span> + str(size) + <span class="string">"-inch pizza with the following toppings:"</span>)</span><br><span class="line">    <span class="keyword">for</span> topping <span class="keyword">in</span> toppings:</span><br><span class="line">        print(<span class="string">"- "</span> + topping)</span><br><span class="line"></span><br><span class="line">make_pizza(<span class="number">16</span>, <span class="string">'pepperoni'</span>)</span><br><span class="line">make_pizza(<span class="number">12</span>, <span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Making a <span class="number">16</span>-inch pizza <span class="keyword">with</span> the following toppings:</span><br><span class="line">- pepperoni</span><br><span class="line"></span><br><span class="line">Making a <span class="number">12</span>-inch pizza <span class="keyword">with</span> the following toppings:</span><br><span class="line">- mushrooms</span><br><span class="line">- green peppers</span><br><span class="line">- extra cheese</span><br></pre></td></tr></table></figure>
-
-<h5 id="使用任意数量的关键字实参"><a href="#使用任意数量的关键字实参" class="headerlink" title="使用任意数量的关键字实参"></a>使用任意数量的关键字实参</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_profile</span><span class="params">(first, last, **user_info)</span>:</span></span><br><span class="line">    profile = &#123;<span class="string">'first_name'</span>: first, <span class="string">'last_name'</span>: last&#125;</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> user_info.items():</span><br><span class="line">        profile[key] = value</span><br><span class="line">    <span class="keyword">return</span> profile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Files = build_profile(<span class="string">'Bad'</span>, <span class="string">'Woman'</span>, location=<span class="string">'princeton'</span>, field=<span class="string">'physics'</span>)</span><br><span class="line">print(Files)</span><br></pre></td></tr></table></figure>
-
-<p>**user_info可以输入好几个键值对作为参数。</p>
-<h3 id="6-将函数存储在模块中"><a href="#6-将函数存储在模块中" class="headerlink" title="6.将函数存储在模块中"></a>6.将函数存储在模块中</h3><p>将函数存储在被称为<strong>模块</strong>的独立文件中， 再将模块<strong>导入</strong>到主程序中。</p>
-<p>import 语句允许在当前运行的程序文件中使用模块中的代码。</p>
-<h5 id="①-导入整个模块"><a href="#①-导入整个模块" class="headerlink" title="①.导入整个模块"></a>①.导入整个模块</h5><p>要让函数是可导入的，得先创建模块。模块是扩展名为.py的文件，包含要导入到程序中的代码。</p>
-<p>下面来创建一个包含函数make_pizza() 的模块。为此，我们将文件pizza.py中 除函数make_pizza() 之外的其他代码都删除： pizza.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_pizza</span><span class="params">(size, *toppings)</span>:</span></span><br><span class="line">    <span class="string">"""概述要制作的比萨"""</span></span><br><span class="line">    print(<span class="string">"\nMaking a "</span> + str(size) + <span class="string">"-inch pizza with the following toppings:"</span>)</span><br><span class="line">    <span class="keyword">for</span> topping <span class="keyword">in</span> toppings:</span><br><span class="line">        print(<span class="string">"- "</span> + topping)</span><br></pre></td></tr></table></figure>
-
-<p>接下来，我们在pizza.py所在的目录中创建另一个名为making_pizzas.py的文件，这个文件导入刚创建的模块，再调用make_pizza() 两次：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pizza</span><br><span class="line"></span><br><span class="line">pizza.make_pizza(<span class="number">16</span>, <span class="string">'pepperoni'</span>)</span><br><span class="line">pizza.make_pizza(<span class="number">12</span>, <span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>import pizza相当于复制了整个pizza.py文件里的代码，若想调用其中的函数直接调用</p>
-<p><strong>pizza.函数名即可</strong></p>
-<h5 id="②-只导入特定的函数"><a href="#②-只导入特定的函数" class="headerlink" title="②.只导入特定的函数"></a>②.只导入特定的函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from module_name import function_name</span><br></pre></td></tr></table></figure>
-
-<p>通过逗号分割函数名，可根据需要从模板中导入多个函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from module_name import function_0, function_1, function_2</span><br></pre></td></tr></table></figure>
-
-<p>如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pizza <span class="keyword">import</span> make_pizza</span><br><span class="line"></span><br><span class="line">make_pizza(<span class="number">16</span>, <span class="string">'pepperoni'</span>)</span><br><span class="line">make_pizza(<span class="number">12</span>, <span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>若使用这种语法，<strong>调用函数时就无需使用句点</strong>。由于我们在import 语句中显式地导入了函数make_pizza() ，因此调用它时<strong>只需指定其名称</strong>。 </p>
-<h5 id="③-使用as给指定别名"><a href="#③-使用as给指定别名" class="headerlink" title="③.使用as给指定别名"></a>③.使用as给指定别名</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 函数别名</span></span><br><span class="line"><span class="keyword">from</span> pizza <span class="keyword">import</span> make_pizza <span class="keyword">as</span> mp </span><br><span class="line">mp(<span class="number">16</span>, <span class="string">'pepperoni'</span>) </span><br><span class="line">mp(<span class="number">12</span>, <span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模块别名</span></span><br><span class="line"><span class="keyword">import</span> pizza <span class="keyword">as</span> p </span><br><span class="line">p.make_pizza(<span class="number">16</span>, <span class="string">'pepperoni'</span>) </span><br><span class="line">p.make_pizza(<span class="number">12</span>, <span class="string">'mushrooms'</span>, <span class="string">'green peppers'</span>, <span class="string">'extra cheese'</span>)</span><br></pre></td></tr></table></figure>
-
-<h5 id="④-导入模块中的所有函数"><a href="#④-导入模块中的所有函数" class="headerlink" title="④.导入模块中的所有函数"></a>④.导入模块中的所有函数</h5><p>使用星号（* ）运算符可让Python导入模块中的所有函数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> module_name <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-
-<p>注：<strong>尽量不要这么做</strong>，如果模块中有函数的名称与你的项目中使用的名称相同，可能导致意想不到的结果：Python可能遇到多个名称相同的函 数或变量，进而覆盖函数，而不是分别导入所有的函数。</p>
-<h3 id="7-函数编写指南"><a href="#7-函数编写指南" class="headerlink" title="7.函数编写指南"></a>7.函数编写指南</h3><ol>
-<li><p>应给函数指定描述性名称，且只在其中<strong>使用小写字母和下划线</strong>。</p>
-</li>
-<li><p>每个函数都应包含简要地阐述其功能的注释，该<strong>注释应紧跟在函数定义后面</strong>，并采用文档字符串格式。</p>
-</li>
-<li><p>给形参指定默认值时，等号两边不要有空格：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function_name</span><span class="params">(parameter_0, parameter_1=<span class="string">'default value'</span>)</span></span></span><br></pre></td></tr></table></figure>
-
-<p>对于函数调用中的关键字实参，也应遵循这种约定：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function_name(value_0, parameter_1=<span class="string">'value'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果程序或模块包含多个函数，可使用<strong>两个空行将相邻的函数分开</strong>，这样将更容易知道前一个函数在什么地方结束，下一个函数从什么地方开始。</p>
-</li>
-<li><p>所有的<strong>import 语句都应放在文件开头</strong>，唯一例外的情形是，在文件开头使用了注释来描述整个程序。</p>
-</li>
-</ol>
-
+    
+    <a class="article-more-a" href="/2020/03/31/python函数-1/#more">more >></a>
+    
     
 
     
@@ -1128,103 +1130,6 @@
 
 
   
-    <article id="post-modelsim单周期cpu的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/05/modelsim单周期cpu的实现/" target="_blank">modelsim单周期cpu的实现</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/05/modelsim单周期cpu的实现/" class="archive-article-date">
-        <time datetime="2019-12-05T10:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="modelsim单周期cpu的实现"><a href="#modelsim单周期cpu的实现" class="headerlink" title="modelsim单周期cpu的实现"></a>modelsim单周期cpu的实现</h1><p><strong>一、实验目的：</strong> </p>
-<p>通过设计并实现支持一条指令的 CPU，理解和掌握 CPU 设计的基本原理和过程。</p>
-    
-    <a class="article-more-a" href="/2019/12/05/modelsim单周期cpu的实现/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">verilog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cpu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">modelsim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/05/modelsim单周期cpu的实现/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1349,19 +1254,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1385,19 +1290,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">字典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">函数的定义与使用</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1409,11 +1310,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">文件， 异常</a>
+                <a href="javascript:void(0)" class="js-tag color3">字典</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1445,10 +1350,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭载好博客的第一天</a>
               </li>
              
@@ -1458,6 +1359,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1498,6 +1403,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">文件， 异常</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -18,10 +18,12 @@
 <meta property="og:site_name" content="马孔多今天下雨了吗">
 <meta property="og:description" content="python文件和异常处理文件：让程序能快速地分析大量的数据。 错误处理：避免程序面对意外崩溃。 异常：python创建的特殊对象，管理程序运行出现的错误 模块json：保存用户数据，一面程序停止运行后丢失。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-08T15:26:15.693Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/08/python文件和异常/1.png">
+<meta property="og:updated_time" content="2020-04-13T06:41:21.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python文件和异常">
 <meta name="twitter:description" content="python文件和异常处理文件：让程序能快速地分析大量的数据。 错误处理：避免程序面对意外崩溃。 异常：python创建的特殊对象，管理程序运行出现的错误 模块json：保存用户数据，一面程序停止运行后丢失。">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/08/python文件和异常/1.png">
   
     <link rel="alternative" href="/atom.xml" title="马孔多今天下雨了吗" type="application/atom+xml">
   
@@ -220,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">572字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -229,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">13分</span>
     </span>
   </span>
 </div>
@@ -252,10 +254,10 @@
 <p>file:文件名 默认为当前目录</p>
 <p>mode:可选，文件打开模式</p>
 <h4 id="1-读取整个文件"><a href="#1-读取整个文件" class="headerlink" title="(1).读取整个文件"></a>(1).读取整个文件</h4><p><strong>pi.txt</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3.1415926535</span><br><span class="line">8979323846</span><br><span class="line">2643383279</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3.1415926535</span><br><span class="line"> 8979323846</span><br><span class="line"> 2643383279</span><br></pre></td></tr></table></figure>
 
 <p><strong>file_reader.py</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'pi.txt'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    contents = file_object.read()</span><br><span class="line">    print(contents)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span></span><br><span class="line"><span class="number">8979323846</span></span><br><span class="line"><span class="number">2643383279</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'pi.txt'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    contents = file_object.read()</span><br><span class="line">    print(contents)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span></span><br><span class="line"> <span class="number">8979323846</span></span><br><span class="line"> <span class="number">2643383279</span></span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><p>open(‘pi.txt’)返回一个表示文件pi.txt的对象，python将这个对象存储在我们在后面使用的变量中。</p>
@@ -277,12 +279,138 @@
 <h5 id="②-绝对路径"><a href="#②-绝对路径" class="headerlink" title="②.绝对路径"></a>②.绝对路径</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file_path = <span class="string">"G:/PyCharmProject/book/unit10/work/pi2.txt"</span></span><br><span class="line"><span class="keyword">with</span> open(file_path) <span class="keyword">as</span> file_object:</span><br></pre></td></tr></table></figure>
 
 <p>原路径中的\最好都替换成反斜杠/</p>
-<h4 id="4-逐行读取"><a href="#4-逐行读取" class="headerlink" title="(4).逐行读取"></a>(4).逐行读取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">'pi.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(file_name) <span class="keyword">as</span> file_object:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file_object:</span><br><span class="line">        print(line)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span></span><br><span class="line"></span><br><span class="line"><span class="number">8979323846</span></span><br><span class="line"></span><br><span class="line"><span class="number">2643383279</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-逐行读取"><a href="#3-逐行读取" class="headerlink" title="(3).逐行读取"></a>(3).逐行读取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">'pi.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(file_name) <span class="keyword">as</span> file_object:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file_object:</span><br><span class="line">        print(line)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span></span><br><span class="line"></span><br><span class="line"> <span class="number">8979323846</span></span><br><span class="line"></span><br><span class="line"> <span class="number">2643383279</span></span><br></pre></td></tr></table></figure>
 
 <p>文件的每行的末尾都有一个换行符，print语句自己加上一个换行符，因为每行末尾有两个换行符，</p>
 <p>在print()中使用rstrip()即可</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">'pi.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(file_name) <span class="keyword">as</span> file_object:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file_object:</span><br><span class="line">        print(line.rstrip())</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span></span><br><span class="line"><span class="number">8979323846</span></span><br><span class="line"><span class="number">2643383279</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">'pi.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(file_name) <span class="keyword">as</span> file_object:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file_object:</span><br><span class="line">        print(line.rstrip())</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span></span><br><span class="line"> <span class="number">8979323846</span></span><br><span class="line"> <span class="number">2643383279</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="4-文件行变为列表"><a href="#4-文件行变为列表" class="headerlink" title="(4).文件行变为列表"></a>(4).文件行变为列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">'pi.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(file_name) <span class="keyword">as</span> file_object:</span><br><span class="line">    lines = file_object.readlines()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    print(line.rstrip())</span><br></pre></td></tr></table></figure>
+
+<p>方法readlines()从文件中读取每一行，并将其存储在一个列表中。</p>
+<h4 id="5-使用文件的内容"><a href="#5-使用文件的内容" class="headerlink" title="(5).使用文件的内容"></a>(5).使用文件的内容</h4><p>创建一个字符串，包含文件中存储的所有数字且没有空格。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">file_name = <span class="string">'pi.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(file_name) <span class="keyword">as</span> file_object:</span><br><span class="line">    lines = file_object.readlines()</span><br><span class="line"></span><br><span class="line">pi = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    pi += line.rstrip()</span><br><span class="line">print(pi)</span><br><span class="line">print(len(pi))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.1415926535</span> <span class="number">8979323846</span> <span class="number">2643383279</span></span><br><span class="line"><span class="number">34</span></span><br></pre></td></tr></table></figure>
+
+<p>注：rstrip删除右边空格换行，lstrip删除左边，strip删除两边。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    pi += line.strip()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">3.141592653589793238462643383279</span></span><br><span class="line"><span class="number">32</span></span><br></pre></td></tr></table></figure>
+
+<p>注：读取文本文件时，python将所有文本都解读为字符串，若读取的是数字，需要用int()转换为整数，或float()转换为浮点数</p>
+<h3 id="2-写入文件"><a href="#2-写入文件" class="headerlink" title="2.写入文件"></a>2.写入文件</h3><h4 id="1-写入空文件"><a href="#1-写入空文件" class="headerlink" title="(1).写入空文件"></a>(1).写入空文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">'programming'</span></span><br><span class="line"><span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    file_object.write(<span class="string">'I love programming'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>读取模式 ‘r’ ：文件不存在报错</li>
+<li>读写模式 ‘r+’ ：可读可写，文件不存在报错</li>
+<li>写入模式 ‘w’ ：新键只写，，覆盖写，源文件会被清空</li>
+<li>读写模式 ‘w+’ ：新键可读可写 ，覆盖写，源文件会被清空</li>
+<li>附加模式 ‘a’ ：附加写方式，不可读。 ‘a+’附加读写。</li>
+</ul>
+<ol>
+<li>‘w’ ‘w+’ ‘a’ ‘a+’都可创建新文件</li>
+<li>‘w’ ‘a’ 不可读</li>
+<li>使用’w’ ‘w+’一定要小心，若存在指定文件，会被清空。</li>
+</ol>
+<p>注：只能写入字符串，若要存数值，先使用str()转换为字符串格式。</p>
+<h4 id="2-写入多行"><a href="#2-写入多行" class="headerlink" title="(2).写入多行"></a>(2).写入多行</h4><p>write()不会在你写入的文本末尾添加换行符。想要换行，在write()的字符串最后添加换行符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">'programming'</span></span><br><span class="line"><span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    file_object.write(<span class="string">'I love you\n'</span>)</span><br><span class="line">    file_object.write(<span class="string">'I love programming\n'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-附加到文件"><a href="#3-附加到文件" class="headerlink" title="(3).附加到文件"></a>(3).附加到文件</h4><p>给文件<strong>添加内容</strong>而不是覆盖，用<strong>附加模式</strong>打开文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">'programming'</span></span><br><span class="line"><span class="keyword">with</span> open(filename, <span class="string">'a'</span>) <span class="keyword">as</span> file_object:</span><br><span class="line">    file_object.write(<span class="string">"I also love finding meaning in large datasets.\n"</span>)</span><br><span class="line">    file_object.write(<span class="string">"I love creating apps that can run in a browser.\n"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-异常"><a href="#3-异常" class="headerlink" title="3.异常"></a>3.异常</h3><p>使用称为异常的特殊对象来管理程序执行期间发生的错误。</p>
+<p>每次发生错误，都会创建一个异常对象：</p>
+<p>1.如果编写了处理该异常的代码，程序将继续运行；</p>
+<p>2.如果未对异常进行处理，程序将停止，并显示一个traceback，其中包含有关异常的报告。</p>
+<p>使用try-except代码处理异常。</p>
+<p>菜鸟教程 Python3 错误和异常：</p>
+<p><a href="https://www.runoob.com/python3/python3-errors-execptions.html" target="_blank" rel="noopener">https://www.runoob.com/python3/python3-errors-execptions.html</a></p>
+<h4 id="1-处理ZeroDivisionError异常"><a href="#1-处理ZeroDivisionError异常" class="headerlink" title="(1).处理ZeroDivisionError异常"></a>(1).处理ZeroDivisionError异常</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">5</span>/<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"G:/PyCharmProject/book/unit10/error/zero.py"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(<span class="number">5</span>/<span class="number">0</span>)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
+
+<p>traceback指除错误ZeroDivisionError是一个异常对象，python无法按你的要求做时，就会创建这种对象。</p>
+<h4 id="2-使用try-except代码块"><a href="#2-使用try-except代码块" class="headerlink" title="(2).使用try-except代码块"></a>(2).使用try-except代码块</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	do something</span><br><span class="line"><span class="keyword">except</span> type-of-error:</span><br><span class="line">	do something</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    print(5/0)</span><br><span class="line">except ZeroDivisionError:</span><br><span class="line">    print(&quot;you can&apos;t divide zero!&quot;)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">you can&apos;t divide zero!</span><br></pre></td></tr></table></figure>
+
+<p>1.如果try代码块运行没有问题，则跳过except代码块</p>
+<p>2.如果有错误，将查早这样的except代码块，并运行其中的代码</p>
+<h4 id="3-使用异常避免崩溃"><a href="#3-使用异常避免崩溃" class="headerlink" title="(3).使用异常避免崩溃"></a>(3).使用异常避免崩溃</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Give me two numbers, and I'll divide them."</span>)</span><br><span class="line">print(<span class="string">"Enter 'q' to quit."</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    first_num = input(<span class="string">"first number:"</span>)</span><br><span class="line">    <span class="keyword">if</span> first_num == <span class="string">'q'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    second_num = input(<span class="string">"second number:"</span>)</span><br><span class="line">    <span class="keyword">if</span> second_num == <span class="string">'q'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    answer = int(first_num) / int(second_num)</span><br><span class="line">    print(<span class="string">"answer = "</span> + str(answer))</span><br></pre></td></tr></table></figure>
+
+<p>该代码输入0做除数会崩溃</p>
+<h4 id="4-else代码块"><a href="#4-else代码块" class="headerlink" title="(4).else代码块"></a>(4).else代码块</h4><p>将依赖于try代码块成功执行的代码都放到else代码块中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	do something1</span><br><span class="line"><span class="keyword">except</span> type-of-error:</span><br><span class="line">    <span class="string">"发生异常"</span></span><br><span class="line">	do something2</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="string">"未发生异常"</span></span><br><span class="line">	do something3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Give me two numbers, and I'll divide them."</span>)</span><br><span class="line">print(<span class="string">"Enter 'q' to quit."</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    first_num = input(<span class="string">"first number:"</span>)</span><br><span class="line">    <span class="keyword">if</span> first_num == <span class="string">'q'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    second_num = input(<span class="string">"second number:"</span>)</span><br><span class="line">    <span class="keyword">if</span> second_num == <span class="string">'q'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        answer = int(first_num) / int(second_num)</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">        print(<span class="string">"you can't divide zero!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"answer = "</span> + str(answer))</span><br></pre></td></tr></table></figure>
+
+<p>try-except-else-finnally代码块：</p>
+<p><img src="/2020/04/08/python文件和异常/1.png" alt="1"></p>
+<p>1.尝试try代码块中的代码，只将可能发生异常的代码才放到try语句中。</p>
+<p>2.except代码放可能发生的相应异常的处理</p>
+<p>3.else中放没有异常发生的正常处理。</p>
+<p>4.finally无论有无异常都执行</p>
+<h4 id="5-处理FileNotFoundError异常"><a href="#5-处理FileNotFoundError异常" class="headerlink" title="(5).处理FileNotFoundError异常"></a>(5).处理FileNotFoundError异常</h4><p>尝试读取一个不存在的文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">'alice.txt'</span></span><br><span class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">    contents = f_obj.read()</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"G:/PyCharmProject/book/unit10/error/alice.py"</span>, line <span class="number">2</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">FileNotFoundError: [Errno <span class="number">2</span>] No such file <span class="keyword">or</span> directory: <span class="string">'alice.txt'</span></span><br></pre></td></tr></table></figure>
+
+<p>这个错误是函数open()导致的，在open前面添加try语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">'alice.txt'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">        contents = f_obj.read()</span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    msg = <span class="string">"sorry, "</span> + filename + <span class="string">" does not exist"</span></span><br><span class="line">    print(msg)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">sorry, alice.txt does <span class="keyword">not</span> exist</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-分析文本"><a href="#6-分析文本" class="headerlink" title="(6).分析文本"></a>(6).分析文本</h4><p>提取文本，并统计它包含多少个单词，使用<strong>split()</strong>方法。</p>
+<p>它根据一个字符串创建一个单词列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title = <span class="string">"Alice in wood"</span></span><br><span class="line">print(title.split())</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">[<span class="string">'Alice'</span>, <span class="string">'in'</span>, <span class="string">'wood'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>方法split()以空格为分隔符将字符拆分为多个部分，并将这些部分都存储到一个列表中。</p>
+<p>结果是一个包含字符串中所有单词的列表。先调用split()，再计算列表元素个数，即可确定童话大致包含多少个单词。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">'alice in wonderland.txt'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">        contents = f_obj.read()</span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    msg = <span class="string">"sorry, "</span> + filename + <span class="string">" does not exist"</span></span><br><span class="line">    print(msg)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    words = contents.split()</span><br><span class="line">    nums = len(words)</span><br><span class="line">    print(filename + <span class="string">" has "</span> + str(nums) + <span class="string">" words."</span>)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">alice <span class="keyword">in</span> wonderland.txt has <span class="number">26511</span> words.</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-使用多个文件"><a href="#7-使用多个文件" class="headerlink" title="(7).使用多个文件"></a>(7).使用多个文件</h4><p>将上面计算单词数的大部分代码移到count-words()的函数中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_words</span><span class="params">(filename)</span>:</span></span><br><span class="line">    <span class="string">"统计文本中有多少个单词"</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">            contents = f_obj.read()</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        msg = <span class="string">"sorry, "</span> + filename + <span class="string">" does not exist"</span></span><br><span class="line">        print(msg)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        words = contents.split()</span><br><span class="line">        nums = len(words)</span><br><span class="line">        print(filename + <span class="string">" has "</span> + str(nums) + <span class="string">" words."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">filename = <span class="string">'alice in wonderland.txt'</span></span><br><span class="line">count_words(filename)</span><br></pre></td></tr></table></figure>
+
+<p>编写循环统计多个文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">filenames = [<span class="string">'alice.txt'</span>, <span class="string">'siddhartha.txt'</span>, <span class="string">'moby_dick.txt'</span>, <span class="string">'little_women.txt'</span>]</span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filenames: </span><br><span class="line">	count_words(filename)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">The file alice.txt has about <span class="number">29461</span> words. </span><br><span class="line">Sorry, the file siddhartha.txt does <span class="keyword">not</span> exist.</span><br><span class="line">The file moby_dick.txt has about <span class="number">215136</span> words. </span><br><span class="line">The file little_women.txt has about <span class="number">189079</span> words.</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果没有try-except处理FileNotFoundError异常，用户将看到完整的traceback，并且程序在尝试分析siddhartha后停止运行，分析不到后面两个文件。</p>
+<p>也就是说，如果放任错误不管，程序将终止</p>
+<h4 id="8-失败时一声不吭"><a href="#8-失败时一声不吭" class="headerlink" title="(8).失败时一声不吭"></a>(8).失败时一声不吭</h4><p>有时候你希望程序异常时一声不吭，就可以像通常那样编写try代码块，但在except代码块中什么都不做,使用<strong>pass</strong>语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	do something1</span><br><span class="line"><span class="keyword">except</span> type-of-error:</span><br><span class="line">    <span class="string">"发生异常"</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="string">"未发生异常"</span></span><br><span class="line">	do something3</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-决定报告哪些错误"><a href="#9-决定报告哪些错误" class="headerlink" title="(9).决定报告哪些错误"></a>(9).决定报告哪些错误</h4><p>编写得很好且经过详尽测试的代码不容易出现内部错误，如语法或逻辑错误，但只要程序依赖于外部因素，如用户输入、存在指定的文件、有网络链接，就有可能出现异常。凭借经验可判断该在程序的什么地方包含异常处理块，以及出现错误时该向用户提供多少相关的信息。</p>
+<h3 id="4-存储数据"><a href="#4-存储数据" class="headerlink" title="4.存储数据"></a>4.存储数据</h3><p>用模块json存储数据。</p>
+<p>JSON(JavaScript Object Notation)格式最初是为JavaScript开发，但随后成为了一种常见格式，被python在内的众多语言采用。</p>
+<h4 id="1-json-dump-和json-load"><a href="#1-json-dump-和json-load" class="headerlink" title="(1).json.dump()和json.load()"></a>(1).json.dump()和json.load()</h4><p>json.dump()接受两个实参：<font color="blue">要存储的送数据</font>、<font color="red">可用于存储数据的文件对象。</font></p>
+<p><strong>注：先数据，后文件名!</strong></p>
+<h5 id="用json-dump-存储数字列表"><a href="#用json-dump-存储数字列表" class="headerlink" title="用json.dump()存储数字列表"></a>用json.dump()存储数字列表</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">nums = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">filename = <span class="string">'numbers.json'</span></span><br><span class="line"><span class="string">"文件为json格式"</span></span><br><span class="line"><span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">    json.dump(nums, f_obj)</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用json-load-将列表读取到内存中"><a href="#使用json-load-将列表读取到内存中" class="headerlink" title="使用json.load()将列表读取到内存中"></a>使用json.load()将列表读取到内存中</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">filename = <span class="string">'numbers.json'</span></span><br><span class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">    nums2 = json.load(f_obj)</span><br><span class="line">    print(nums2)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+
+<p>这是一种在程序之间共享数据的简单方式。</p>
+<p>这里json.load(f_obj)也可以换成f_obj.read()。</p>
+<h4 id="2-保存和读取用户生成的数据"><a href="#2-保存和读取用户生成的数据" class="headerlink" title="(2).保存和读取用户生成的数据"></a>(2).保存和读取用户生成的数据</h4><p>存储用户的名字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">username = input(<span class="string">"please input your name: "</span>)</span><br><span class="line">filename = <span class="string">'username.json'</span></span><br><span class="line"><span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">    json.dump(username, f_obj)</span><br><span class="line">    print(<span class="string">"We'll remember you when you come back "</span> + username + <span class="string">"!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>向名字被存储的用户发出问候</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">filename = <span class="string">'username.json'</span></span><br><span class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">    username = json.load(f_obj)</span><br><span class="line">    print(<span class="string">"Welcome back, "</span> + username + <span class="string">"!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>将两程序合并：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">filename = <span class="string">'username.json'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="string">"检查是否存在文件filename"</span></span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">        username = json.load(f_obj)</span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    <span class="string">"不存在就创建filename文件并写入username"</span></span><br><span class="line">    username = input(<span class="string">"please input your name: "</span>)</span><br><span class="line">    <span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">        json.dump(username, f_obj)</span><br><span class="line">        print(<span class="string">"We'll remember you when you come back "</span> + username + <span class="string">"!"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="string">"存在就直接读取filename中的username"</span></span><br><span class="line">    print(<span class="string">"Welcome back, "</span> + username + <span class="string">"!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：try语句后的username变量在离开了该语句之后仍然可以使用。</p>
+<h4 id="3-重构"><a href="#3-重构" class="headerlink" title="(3).重构"></a>(3).重构</h4><p>将代码分为一系列完成具体工作的函数，这样的过程被称为<strong>重构</strong>。</p>
+<p>将上面所有代码都放入greet_user()的函数中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_user</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""问候用户，并指出起名字"""</span></span><br><span class="line">    filename = <span class="string">'username.json'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="string">"检查是否存在文件filename"</span></span><br><span class="line">        <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">            username = json.load(f_obj)</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="string">"不存在就创建filename文件并写入username"</span></span><br><span class="line">        username = input(<span class="string">"please input your name: "</span>)</span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">            json.dump(username, f_obj)</span><br><span class="line">            print(<span class="string">"We'll remember you when you come back "</span> + username + <span class="string">"!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="string">"存在就直接读取filename中的username"</span></span><br><span class="line">        print(<span class="string">"Welcome back, "</span> + username + <span class="string">"!"</span>)</span><br><span class="line">        </span><br><span class="line">greet_user()</span><br></pre></td></tr></table></figure>
+
+<p>重构greet_user()，将获取存储的用户名的代码移到另一个函数中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_stored_name</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""获取存储的名字，若没有则返回None"""</span></span><br><span class="line">    filename = <span class="string">'username.json'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">            username = json.load(f_obj)</span><br><span class="line">        <span class="keyword">return</span> username</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_user</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""如果有名字则问候，没有则新建并存储"""</span></span><br><span class="line">    username = get_stored_name()</span><br><span class="line">    <span class="keyword">if</span> username:</span><br><span class="line">        print(<span class="string">"Welcome back, "</span> + username + <span class="string">"!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        username = input(<span class="string">"please input your name: "</span>)</span><br><span class="line">        filename = <span class="string">'username.json'</span></span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">            json.dump(username, f_obj)</span><br><span class="line">            print(<span class="string">"We'll remember you when you come back "</span> + username + <span class="string">"!"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">greet_user()</span><br></pre></td></tr></table></figure>
+
+<p>还可以将greet_user()的另一个代码块提取出来：</p>
+<p>将没有存储用户名时提示用户输入的代码变成独立的函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_stored_name</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""获取存储的名字，若没有则返回None"""</span></span><br><span class="line">    filename = <span class="string">'username.json'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f_obj:</span><br><span class="line">            username = json.load(f_obj)</span><br><span class="line">        <span class="keyword">return</span> username</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_new_user</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""提示输入新用户名"""</span></span><br><span class="line">    username = input(<span class="string">"please input your name: "</span>)</span><br><span class="line">    filename = <span class="string">'username.json'</span></span><br><span class="line">    <span class="keyword">with</span> open(filename, <span class="string">'w'</span>) <span class="keyword">as</span> f_obj:</span><br><span class="line">        json.dump(username, f_obj)</span><br><span class="line">    <span class="keyword">return</span> username</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_user</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""如果有名字则问候，没有则新建并存储"""</span></span><br><span class="line">    username = get_stored_name()</span><br><span class="line">    <span class="keyword">if</span> username:</span><br><span class="line">        print(<span class="string">"Welcome back, "</span> + username + <span class="string">"!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        username = get_new_user()</span><br><span class="line">        print(<span class="string">"We'll remember you when you come back "</span> + username + <span class="string">"!"</span>)</span><br><span class="line"></span><br><span class="line">greet_user()</span><br></pre></td></tr></table></figure>
+
+<p>最终版本每个函数执行单一且清晰的任务：</p>
+<p>1.get_stored_username()</p>
+<p> 获取存储的用户名，若没有就返回None</p>
+<p>2.greet_user()</p>
+<p> 问候用户或调用存储</p>
+<p>3.get_new_username()</p>
+<p>存储新的用户名</p>
+<p>要编写出清晰且易于维护和扩展的代码，划分工作必不可少。</p>
 
     
 
@@ -422,6 +550,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/04/13/python测试/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python测试
+        
+      </div>
+    </a>
   
   
     <a href="/2020/04/01/python类/" id="article-nav-older" class="article-nav-link-wrap">
@@ -578,19 +715,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,19 +751,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">字典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">函数的定义与使用</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +771,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">文件， 异常</a>
+                <a href="javascript:void(0)" class="js-tag color3">字典</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,10 +811,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭载好博客的第一天</a>
               </li>
              
@@ -687,6 +820,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,6 +864,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">文件， 异常</a>
               </li>
              
               <li class="article-tag-list-item">
