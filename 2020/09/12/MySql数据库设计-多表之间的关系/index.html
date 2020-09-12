@@ -10,17 +10,24 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="努力热爱生活">
+  <meta name="description" content="MySql数据库设计-多表之间的关系数据库的设计——1.多表之间的关系  2.数据库设计的范式">
+<meta name="keywords" content="MySql,数据库设计,多表之间的关系">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql数据库设计-多表之间的关系">
 <meta property="og:url" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/index.html">
 <meta property="og:site_name" content="马孔多今天下雨了吗">
-<meta property="og:description" content="努力热爱生活">
+<meta property="og:description" content="MySql数据库设计-多表之间的关系数据库的设计——1.多表之间的关系  2.数据库设计的范式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-12T08:19:24.908Z">
+<meta property="og:image" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/5.png">
+<meta property="og:updated_time" content="2020-09-12T09:21:02.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql数据库设计-多表之间的关系">
-<meta name="twitter:description" content="努力热爱生活">
+<meta name="twitter:description" content="MySql数据库设计-多表之间的关系数据库的设计——1.多表之间的关系  2.数据库设计的范式">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/12/MySql数据库设计-多表之间的关系/1.png">
   
     <link rel="alternative" href="/atom.xml" title="马孔多今天下雨了吗" type="application/atom+xml">
   
@@ -219,7 +226,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">546字</span>
     </span>
   </span>
 
@@ -228,7 +235,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -239,7 +246,60 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="MySql数据库设计-多表之间的关系"><a href="#MySql数据库设计-多表之间的关系" class="headerlink" title="MySql数据库设计-多表之间的关系"></a>MySql数据库设计-多表之间的关系</h1><p>数据库的设计——1.多表之间的关系  2.数据库设计的范式</p>
+<a id="more"></a>
+
+<h3 id="多表之间的关系"><a href="#多表之间的关系" class="headerlink" title="多表之间的关系"></a>多表之间的关系</h3><ol>
+<li><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
+<li>一对一(了解)<ul>
+<li>如：人和身份证</li>
+<li>分析：一个人只能有一个身份证，一个身份证只能对应一个人</li>
+</ul>
+</li>
+<li>一对多(多对一)<ul>
+<li>如：部门和员工</li>
+<li>分析：一个学生可以选择很多门课程，一个课程也可以被很多学生选择</li>
+</ul>
+</li>
+<li>多对多<ul>
+<li>如：学生和课程</li>
+<li>分析：一个学生可以选择很多门课程，一个课程也可以辈很多学生选择</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><h4 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h4><ol>
+<li><p>一对多(多对一)</p>
+<ul>
+<li>如：部门和员工</li>
+<li>实现方式：在<strong>多</strong>的一方建立<strong>外键</strong>，<strong>指向一</strong>的一方。</li>
+</ul>
+<p><img src="/2020/09/12/MySql数据库设计-多表之间的关系/1.png" alt="1"></p>
+</li>
+<li><p>多对多</p>
+<ul>
+<li>如：学生和课程</li>
+<li>实现方式：多地多的关系实现需要借助第三张<strong>中间表</strong>。在两张表之间建立中间表，中间表的列<strong>至少包含两个表的主键字段</strong>，再分别在这两个列上<strong>建立外键</strong>，分别<strong>指向两张表的主键</strong>。</li>
+</ul>
+<p><img src="/2020/09/12/MySql数据库设计-多表之间的关系/2.png" alt="2"></p>
+</li>
+<li><p>一对一(了解)</p>
+<ul>
+<li>如：人和身份证</li>
+<li>实现方式：在任意一方添加<strong>唯一外键</strong>指向另一方的主键。</li>
+<li>注：平时较少使用，通常将两张表合并为一张表。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="/2020/09/12/MySql数据库设计-多表之间的关系/3.png" alt="3"></p>
+<h4 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h4><p>途牛旅游网</p>
+<p><img src="/2020/09/12/MySql数据库设计-多表之间的关系/4.png" alt="4"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">-- 旅游线路分类表 tab_category</span><br><span class="line">CREATE TABLE tab_category(</span><br><span class="line">	cid INT PRIMARY KEY AUTO_INCREMENT,	-- 分类主键</span><br><span class="line">	cname VARCHAR(100) NOT NULL UNIQUE      -- 分类名称，非空且唯一</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 旅游线路表 tab_route</span><br><span class="line">CREATE TABLE tab_route(</span><br><span class="line">	rid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	rname VARCHAR(100) NOT NULL UNIQUE,</span><br><span class="line">	price DOUBLE,</span><br><span class="line">	rdate DATE,</span><br><span class="line">	cid INT,				-- 外键，指向所属分类</span><br><span class="line">	FOREIGN KEY(cid) REFERENCES tab_category(cid)	</span><br><span class="line">	-- 外键的简化写法，省略了constraint 外键名,系统会自动为该外键分配一个外键名</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 用户表</span><br><span class="line">CREATE TABLE tab_user(</span><br><span class="line">	uid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	username VARCHAR(100) UNIQUE NOT NULL,</span><br><span class="line">	PASSWORD VARCHAR(30) NOT NULL,</span><br><span class="line">	NAME VARCHAR(100),</span><br><span class="line">	birthday DATE,</span><br><span class="line">	sex CHAR(1) DEFAULT &apos;男&apos;,</span><br><span class="line">	telephone VARCHAR(11),</span><br><span class="line">	email VARCHAR(100)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 用户的收藏表(中间表)</span><br><span class="line">CREATE TABLE tab_favorite(</span><br><span class="line">	rid INT,	-- 线路id</span><br><span class="line">	DATE DATETIME,</span><br><span class="line">	uid INT,	-- 用户id</span><br><span class="line">	-- 创建复合主键</span><br><span class="line">	PRIMARY KEY(rid,uid),	-- 联合主键(两个列合起来唯一确定一行数据)</span><br><span class="line">	FOREIGN KEY(rid) REFERENCES tab_route(rid),</span><br><span class="line">	FOREIGN KEY(uid) REFERENCES tab_user(uid)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/09/12/MySql数据库设计-多表之间的关系/5.png" alt="5"></p>
+
     
 
     
@@ -299,6 +359,25 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">数据库设计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">多表之间的关系</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -363,6 +442,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/09/12/MySql数据库设计-范式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySql数据库设计-范式
+        
+      </div>
+    </a>
   
   
     <a href="/2020/09/12/MySql-约束/" id="article-nav-older" class="article-nav-link-wrap">
@@ -539,6 +627,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据库设计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多表之间的关系</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -555,6 +651,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
@@ -564,10 +664,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,6 +683,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">字典</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
               </li>
              
@@ -595,15 +699,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">字典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">错误</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,10 +719,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">输入input</a>
               </li>
              
@@ -631,15 +727,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">verilog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,15 +799,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
               </li>
             
             <div class="clearfix"></div>
