@@ -6,25 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaWeb-HTTP | 马孔多今天下雨了吗</title>
+  <title>JavaWeb-HTTP协议 | 马孔多今天下雨了吗</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="HTTP 概念：Hyper Text Transfer Protocol 超文本传输协议">
+  <meta name="description" content="HTTP协议 概念：Hyper Text Transfer Protocol 超文本传输协议">
 <meta name="keywords" content="JavaWeb,HTTP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb-HTTP">
+<meta property="og:title" content="JavaWeb-HTTP协议">
 <meta property="og:url" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/index.html">
 <meta property="og:site_name" content="马孔多今天下雨了吗">
-<meta property="og:description" content="HTTP 概念：Hyper Text Transfer Protocol 超文本传输协议">
+<meta property="og:description" content="HTTP协议 概念：Hyper Text Transfer Protocol 超文本传输协议">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/2.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/1.png">
-<meta property="og:updated_time" content="2020-09-24T03:18:29.136Z">
+<meta property="og:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/3.png">
+<meta property="og:updated_time" content="2020-09-24T13:30:32.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaWeb-HTTP">
-<meta name="twitter:description" content="HTTP 概念：Hyper Text Transfer Protocol 超文本传输协议">
-<meta name="twitter:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/2.png">
+<meta name="twitter:title" content="JavaWeb-HTTP协议">
+<meta name="twitter:description" content="HTTP协议 概念：Hyper Text Transfer Protocol 超文本传输协议">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/22/JavaWeb-HTTP/1.png">
   
     <link rel="alternative" href="/atom.xml" title="马孔多今天下雨了吗" type="application/atom+xml">
   
@@ -191,7 +193,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      JavaWeb-HTTP
+      JavaWeb-HTTP协议
     </h1>
   
 
@@ -217,7 +219,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">349字</span>
+      <span class="post-count">746字</span>
     </span>
   </span>
 
@@ -226,7 +228,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -237,13 +239,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><ul>
-<li><p>概念：Hyper Text Transfer Protocol 超文本传输协议</p>
+    <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><ul>
+<li>概念：Hyper Text Transfer Protocol 超文本传输协议</li>
+</ul>
 <a id="more"></a>
 
+<h2 id="1-传输协议："><a href="#1-传输协议：" class="headerlink" title="1.传输协议："></a>1.传输协议：</h2><p>定义了 客户端和服务器端通信时 发送数据的格式</p>
 <ul>
-<li><p>传输协议：定义了 客户端和服务器端通信时 发送数据的格式</p>
-</li>
 <li><p>特点：</p>
 <ol>
 <li>基于TCP/IP的高级协议</li>
@@ -258,10 +260,32 @@
 <li>1.1：复用连接</li>
 </ul>
 </li>
-<li><p>请求消息数据格式</p>
-<ol>
-<li><p>请求行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 请求方式  请求url  请求协议/版本</span><br><span class="line">- GET   /login.html   HTTP/1.1</span><br></pre></td></tr></table></figure>
+</ul>
+<h2 id="2-请求消息与响应消息"><a href="#2-请求消息与响应消息" class="headerlink" title="2.请求消息与响应消息"></a>2.请求消息与响应消息</h2><ol>
+<li>请求消息：客户端发给服务器端的数据<ul>
+<li>数据格式：<ol>
+<li>请求行</li>
+<li>请求头</li>
+<li>请求空行</li>
+<li>请求体</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>响应消息：服务器端发给客户端的数据<ul>
+<li>数据格式：<ol>
+<li>响应行</li>
+<li>响应头</li>
+<li>响应空行</li>
+<li>响应体</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-请求消息数据格式"><a href="#3-请求消息数据格式" class="headerlink" title="3.请求消息数据格式"></a>3.请求消息数据格式</h2><p>样例：</p>
+<p><img src="/2020/09/22/JavaWeb-HTTP/1.png" alt="1"></p>
+<h4 id="1-请求行"><a href="#1-请求行" class="headerlink" title="1.请求行"></a>1.请求行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 请求方式  请求url  请求协议/版本</span><br><span class="line">- GET   /login.html   HTTP/1.1</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>请求方式：<ul>
@@ -280,9 +304,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>请求头</p>
-<ul>
+<h4 id="2-请求头"><a href="#2-请求头" class="headerlink" title="2.请求头"></a>2.请求头</h4><ul>
 <li><p>请求头名称：请求头值</p>
 </li>
 <li><p>常见的请求头：</p>
@@ -306,23 +328,62 @@
 <p><img src="/2020/09/22/JavaWeb-HTTP/2.png" alt="2"></p>
 </li>
 </ul>
-</li>
-<li><p>请求空行</p>
-<ul>
+<h4 id="3-请求空行"><a href="#3-请求空行" class="headerlink" title="3.请求空行"></a>3.请求空行</h4><ul>
 <li>空行，就是用于分割POST请求的 请求头 和 请求体 的</li>
 </ul>
-</li>
-<li><p>请求体</p>
-<ul>
-<li>封装POST请求消息的请求参数的<br><img src="/2020/09/22/JavaWeb-HTTP/1.png" alt="1"></li>
+<h4 id="4-请求体"><a href="#4-请求体" class="headerlink" title="4.请求体"></a>4.请求体</h4><ul>
+<li>封装POST请求消息的请求参数的</li>
 </ul>
+<h2 id="4-响应消息数据格式"><a href="#4-响应消息数据格式" class="headerlink" title="4.响应消息数据格式"></a>4.响应消息数据格式</h2><p>样例：</p>
+<p><img src="/2020/09/22/JavaWeb-HTTP/4.png" alt="4"></p>
+<h4 id="1-响应行："><a href="#1-响应行：" class="headerlink" title="1.响应行："></a>1.响应行：</h4><ol>
+<li><p>组成：协议/版本 响应状态码 状态码描述</p>
 </li>
+<li><p>响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态。</p>
+<ol>
+<li><p>状态码都是3位数字</p>
+</li>
+<li><p>分类：</p>
+<ol>
+<li><p>1xx：服务器接收客户端消息，但没有接收完成，等待一段时间后，发送1xx多状态码</p>
+</li>
+<li><p>2xx：成功。代表：200</p>
+</li>
+<li><p>3xx：重定向。代表：302(重定向)，304(访问浏览器缓存，如已保存且未改变的图片)</p>
+<p><img src="/2020/09/22/JavaWeb-HTTP/3.png" alt="3"></p>
+</li>
+<li><p>4xx：客户端错误。</p>
+<ul>
+<li>代表：<ol>
+<li>404(请求路径没有对应资源，路径错误)</li>
+<li>405(请求方式没有对应的doXxx方法，直接访问是doGet请求)</li>
 </ol>
 </li>
 </ul>
 </li>
+<li><p>5xx：服务器端错误。代表：500(服务器内部出现异常)</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-响应头"><a href="#2-响应头" class="headerlink" title="2.响应头:"></a>2.响应头:</h4><ol>
+<li>格式： 头名称 ：值</li>
+<li>常见的响应头：<ol>
+<li>Content-Type：服务器告诉客户端本次相应体数据格式以及编码格式</li>
+<li>Content-disposition：服务器告诉客户端以什么格式打开响应体数据<ul>
+<li>值：<ul>
+<li>in-line：默认值，在当前页面内打开</li>
+<li>attachment;filename=xxx:以附件形式打开响应体。常用于文件下载</li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="3-响应空行"><a href="#3-响应空行" class="headerlink" title="3.响应空行"></a>3.响应空行</h4><h4 id="4-响应体：传输的数据"><a href="#4-响应体：传输的数据" class="headerlink" title="4.响应体：传输的数据"></a>4.响应体：传输的数据</h4>
     
 
     
@@ -368,7 +429,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/09/22/JavaWeb-HTTP/" title="JavaWeb-HTTP" target="_blank">http://yoursite.com/2020/09/22/JavaWeb-HTTP/</a>
+          <a href="http://yoursite.com/2020/09/22/JavaWeb-HTTP/" title="JavaWeb-HTTP协议" target="_blank">http://yoursite.com/2020/09/22/JavaWeb-HTTP/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -642,11 +703,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color5">表单标签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">表单标签</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,11 +715,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概述</a>
+                <a href="javascript:void(0)" class="js-tag color4">Response</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概述</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,19 +751,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DQL语句</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">约束</a>
+                <a href="javascript:void(0)" class="js-tag color1">DQL语句</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据库的备份和还原</a>
+                <a href="javascript:void(0)" class="js-tag color3">约束</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,11 +787,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,11 +807,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">random库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据库的备份和还原</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">random库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,10 +831,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">列表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
               </li>
              
@@ -774,11 +839,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">字典</a>
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+                <a href="javascript:void(0)" class="js-tag color3">字典</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,6 +879,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭载好博客的第一天</a>
               </li>
              
@@ -827,10 +896,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,7 +915,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">登录案例</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据库连接池</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -862,6 +931,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">登录案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">查询</a>
               </li>
              
@@ -870,15 +943,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,10 +967,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
@@ -907,10 +976,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库连接池</a>
               </li>
             
             <div class="clearfix"></div>
