@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/09/28/JavaWeb-案例：用户信息列表展示/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/28/JavaWeb-案例：用户信息列表展示/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/28/JavaWeb-案例：用户信息列表展示/5.png">
-<meta property="og:updated_time" content="2020-09-30T08:09:10.051Z">
+<meta property="og:updated_time" content="2020-09-30T08:40:28.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-案例：用户信息列表展示">
 <meta name="twitter:description" content="JavaWeb-案例：用户信息列表展示1.需求：用户信息的增删查改操作">
@@ -220,7 +220,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.3k字</span>
+      <span class="post-count">5.4k字</span>
     </span>
   </span>
 
@@ -335,54 +335,41 @@
 <ol>
 <li><p>获取用户填写的验证码和正确的验证码，注意要确保验证码的一次性</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String verifycode = request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line"><span class="comment">//获取正确的验证码</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"><span class="comment">//注意获取完之后要立即删除正确的验证码，防止其被重复利用</span></span><br><span class="line"><span class="comment">//确保验证码的一次性</span></span><br><span class="line">sesion.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证码校验</p>
-<ol>
-<li><p>若输入错误</p>
-<ol>
-<li><p>存储错误信息     </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>转发跳转登录页面，显示错误信息 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requset.getRequestDispatcher(<span class="string">"/login.jsp"</span>).forward(req,resp);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>若输入正确</p>
-<ol>
-<li><p>封装输入信息到user对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建议在此步增加测试</span></span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">BeanUtils.populate(user,map);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用service方法进行查询操作</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UserService service = <span class="keyword">new</span> UserServiceImpl;</span><br><span class="line">User loginUser = service.login(user);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>若用户名密码正确</p>
-<ol>
-<li><p>返回loginUser对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将用户存入session</span></span><br><span class="line">session.setAttribute(<span class="string">"user"</span>,loginUser);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>存储到session，重定向到list界面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//跳转页面</span><br><span class="line">response.sendRedirect(&quot;request.getContextPath()&quot;+/index.jsp);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>若用户名密码错误</p>
-<ol>
-<li><p>存储错误信息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：因为上面若是验证码错误，存储后会直接return，因此两个错误信息可以复用一个msg名称</span></span><br><span class="line">request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或密码错误"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>转发跳转登录页面，显示错误信息</p>
+
+
 </li>
 </ol>
 </li>
 </ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p>1.先判锻验证码输入正确的写法，和之前学的一样，但是if判断要稍麻烦些，注意这里自己写的是UserLoginServlet类，老师写的是LoginServlet类，仅名称不一样，login.jsp提交的路径要做些修改。</p>
+<pre><code>2. 验证码校验
+    1. 若输入错误
+        1. 存储错误信息     
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误"</span>);</span><br></pre></td></tr></table></figure>
+
+        2. 转发跳转登录页面，显示错误信息 
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requset.getRequestDispatcher(<span class="string">"/login.jsp"</span>).forward(req,resp);</span><br></pre></td></tr></table></figure>
+
+    2. 若输入正确
+        1. 封装输入信息到user对象
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建议在此步增加测试</span></span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">BeanUtils.populate(user,map);</span><br></pre></td></tr></table></figure>
+
+        2. 调用service方法进行查询操作
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UserService service = <span class="keyword">new</span> UserServiceImpl;</span><br><span class="line">User loginUser = service.login(user);</span><br></pre></td></tr></table></figure>
+
+        3. 若用户名密码正确
+            1. 返回loginUser对象
+               <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将用户存入session</span></span><br><span class="line">session.setAttribute(<span class="string">"user"</span>,loginUser);</span><br></pre></td></tr></table></figure>
+
+            2. 存储到session，重定向到list界面
+
+               <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//跳转页面</span><br><span class="line">response.sendRedirect(&quot;request.getContextPath()&quot;+/index.jsp);</span><br></pre></td></tr></table></figure>
+
+        4. 若用户名密码错误
+            1. 存储错误信息
+
+               <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：因为上面若是验证码错误，存储后会直接return，因此两个错误信息可以复用一个msg名称</span></span><br><span class="line">request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或密码错误"</span>);</span><br></pre></td></tr></table></figure>
+
+            2. 转发跳转登录页面，显示错误信息</code></pre><p>1.先判锻验证码输入正确的写法，和之前学的一样，但是if判断要稍麻烦些，注意这里自己写的是UserLoginServlet类，老师写的是LoginServlet类，仅名称不一样，login.jsp提交的路径要做些修改。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.web.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.itcast.domain.User;</span><br><span class="line"><span class="keyword">import</span> cn.itcast.service.UserServiceImpl;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.beanutils.BeanUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/userLoginServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserLoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.设置编码格式</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        <span class="comment">//2.获取输入的验证码,在login中查看验证码input对应的id</span></span><br><span class="line">            <span class="comment">//注意getParameter和getAttribute的区别</span></span><br><span class="line">            <span class="comment">//getParameter是用来接受用post和get方法传递过来的参数的.</span></span><br><span class="line">            <span class="comment">//getAttribute必须先setAttribute</span></span><br><span class="line">        String verifycode = (String) request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line">            <span class="comment">//获取正确的验证码，</span></span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line">            <span class="comment">//获取完之后及时删除正确的验证码，防止验证码复用</span></span><br><span class="line">        session.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(verifycode+<span class="string">"-----"</span>+checkcode_server);</span><br><span class="line">        <span class="comment">//3.判断验证码输入是否正确</span></span><br><span class="line">            <span class="comment">//先判断验证码正确的写法</span></span><br><span class="line">        <span class="keyword">if</span>(checkcode_server!=<span class="keyword">null</span> &amp;&amp; checkcode_server.equalsIgnoreCase(verifycode))&#123;</span><br><span class="line">            <span class="comment">//3.1验证码正确</span></span><br><span class="line">            <span class="comment">//3.1.1封装用户输入为loginUser对象</span></span><br><span class="line">            User loginUser = <span class="keyword">new</span> User();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BeanUtils.populate(loginUser,request.getParameterMap());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException | InvocationTargetException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            UserServiceImpl service = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">            User user = service.login(loginUser);</span><br><span class="line">            <span class="comment">//3.1.2若查询结果不为空，登陆成功</span></span><br><span class="line">            <span class="keyword">if</span>(user != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//存储user数据</span></span><br><span class="line">                session.setAttribute(<span class="string">"user"</span>,user);</span><br><span class="line">                <span class="comment">//重定向到成功登录界面,注意，重定向需要加上项目的虚拟路径</span></span><br><span class="line">                response.sendRedirect(request.getContextPath()+<span class="string">"/index.jsp"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//存储错误信息</span></span><br><span class="line">                session.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或者密码错误！"</span>);</span><br><span class="line">                <span class="comment">//转发跳转到登陆界面</span></span><br><span class="line">                request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="comment">//3.2若没有return则说明验证码输入错误</span></span><br><span class="line">        request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误！"</span>);</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2.先判断验证码不正确的新写法，if判断较简单(并不。。。)</p>
@@ -776,11 +763,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color5">表单标签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">表单标签</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,10 +780,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,15 +803,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">会话技术</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,11 +827,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DDL语句</a>
+                <a href="javascript:void(0)" class="js-tag color1">DCL语句</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DQL语句</a>
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LL1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DDL语句</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,15 +847,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DCL语句</a>
+                <a href="javascript:void(0)" class="js-tag color1">DQL语句</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">约束</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,14 +875,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LL1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -900,7 +887,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,7 +903,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -940,10 +927,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">字典</a>
               </li>
              
@@ -956,11 +939,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -969,6 +952,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,22 +979,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">搭载好博客的第一天</a>
               </li>
              
@@ -1017,6 +988,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
