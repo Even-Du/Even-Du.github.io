@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/09/28/JavaWeb-案例：用户信息列表展示/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/28/JavaWeb-案例：用户信息列表展示/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/09/28/JavaWeb-案例：用户信息列表展示/5.png">
-<meta property="og:updated_time" content="2020-09-30T08:44:32.744Z">
+<meta property="og:updated_time" content="2020-10-02T09:21:30.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-案例：用户信息列表展示">
 <meta name="twitter:description" content="JavaWeb-案例：用户信息列表展示1.需求：用户信息的增删查改操作">
@@ -220,7 +220,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.4k字</span>
+      <span class="post-count">5.7k字</span>
     </span>
   </span>
 
@@ -229,7 +229,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">25分</span>
+      <span class="post-count">26分</span>
     </span>
   </span>
 </div>
@@ -328,55 +328,44 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE USER(</span><br><span class="line">	id INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	NAME VARCHAR(20) NOT NULL,</span><br><span class="line">	gender VARCHAR(2) DEFAULT &quot;男&quot;,</span><br><span class="line">	age INT,</span><br><span class="line">	address VARCHAR(32),</span><br><span class="line">	qq VARCHAR(20),</span><br><span class="line">	email VARCHAR(50),</span><br><span class="line">	username VARCHAR(32) DEFAULT NULL,</span><br><span class="line">	PASSWORD VARCHAR(32) DEFAULT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<h5 id="3-在web-servlet下新建CheckCodeServlet类，复制粘贴代码进来"><a href="#3-在web-servlet下新建CheckCodeServlet类，复制粘贴代码进来" class="headerlink" title="3.在web/servlet下新建CheckCodeServlet类，复制粘贴代码进来"></a>3.在web/servlet下新建CheckCodeServlet类，复制粘贴代码进来</h5><h5 id="4-编写LoginServlet类。"><a href="#4-编写LoginServlet类。" class="headerlink" title="4.编写LoginServlet类。"></a>4.编写LoginServlet类。</h5><ol>
-<li><p>设置编码</p>
-</li>
-<li><p>获取数据</p>
+<h5 id="3-在web-servlet下新建CheckCodeServlet类，复制粘贴代码进来"><a href="#3-在web-servlet下新建CheckCodeServlet类，复制粘贴代码进来" class="headerlink" title="3.在web/servlet下新建CheckCodeServlet类，复制粘贴代码进来"></a>3.在web/servlet下新建CheckCodeServlet类，复制粘贴代码进来</h5><h5 id="4-编写LoginServlet类。"><a href="#4-编写LoginServlet类。" class="headerlink" title="4.编写LoginServlet类。"></a>4.编写LoginServlet类。</h5><p>1.设置编码</p>
+<p>2.获取数据</p>
 <ol>
-<li><p>获取用户填写的验证码和正确的验证码，注意要确保验证码的一次性</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String verifycode = request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line"><span class="comment">//获取正确的验证码</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"><span class="comment">//注意获取完之后要立即删除正确的验证码，防止其被重复利用</span></span><br><span class="line"><span class="comment">//确保验证码的一次性</span></span><br><span class="line">sesion.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>)</span><br></pre></td></tr></table></figure>
-
-
+<li>request域中 获取用户填写的验证码 verifycode </li>
+<li>session中 获取正确的验证码 checkcode_server</li>
+<li>获取完后立即删除session中正确的验证码removeAttribute，防止其被重复利用</li>
+</ol>
+<p>3.判断验证码是否输入正确<br>4.验证码正确，注意要先判断checkcode_server是否为空，才能用其点方法。</p>
+<ol>
+<li>封装输入信息到user</li>
+<li>调用service方法执行查询</li>
+<li>若用户名密码正确<ol>
+<li>返回loginUser对象</li>
+<li>将loginUser存入session</li>
+<li>重定向到list界面</li>
+</ol>
 </li>
+<li>若用户名密码错误<ol>
+<li>存储错误信息</li>
+<li>转发到index.jsp页面，显示错误信息</li>
 </ol>
 </li>
 </ol>
-<pre><code>2. 验证码校验
-    1. 若输入错误
-        1. 存储错误信息     
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误"</span>);</span><br></pre></td></tr></table></figure>
+<p>6.验证码错误</p>
+<ol>
+<li>存储错误信息</li>
+<li>转发到index.jsp页面，显示错误信息</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.设置编码</span></span><br><span class="line"><span class="comment">//2.获取数据</span></span><br><span class="line">	<span class="comment">//1.获取用户填写的验证码和正确的验证码，注意要确保验证码的一次性</span></span><br><span class="line">String verifycode = request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line"><span class="comment">//获取正确的验证码</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line">String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"><span class="comment">//注意获取完之后要立即删除正确的验证码，防止其被重复利用</span></span><br><span class="line"><span class="comment">//确保验证码的一次性</span></span><br><span class="line">sesion.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.判断验证码是否输入正确</span></span><br><span class="line"><span class="comment">//4.验证码输入正确，注意要先判断是否为空</span></span><br><span class="line">	<span class="comment">//用户输入为verifycode		正确代码为checkcode_server</span></span><br><span class="line">	<span class="comment">//用户若不输入则为空串""			用户若登录再返回再登录，chceckcode_server会为null</span></span><br><span class="line">	<span class="comment">//注：input type="text" 不输入数据，默认为空串，若是checkbox、readio、select，不填则会为null值。</span></span><br><span class="line"><span class="keyword">if</span>(checkcode_server!=<span class="keyword">null</span> &amp;&amp; checkcode_server.equalsIgnoreCase(verifycode))</span><br><span class="line">	<span class="comment">//4.1封装输入信息到user对象   </span></span><br><span class="line">    <span class="comment">//建议在此步增加测试</span></span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    BeanUtils.populate(user,map);   </span><br><span class="line">    <span class="comment">//4.2调用service方法进行查询操作</span></span><br><span class="line">    UserService service = <span class="keyword">new</span> UserServiceImpl;</span><br><span class="line">    User loginUser = service.login(user);</span><br><span class="line">	<span class="comment">//4.2.1若用户名密码正确</span></span><br><span class="line">        <span class="comment">//1.返回loginUser对象</span></span><br><span class="line">        <span class="comment">//2.将用户存入session</span></span><br><span class="line">        session.setAttribute(<span class="string">"user"</span>,loginUser);</span><br><span class="line">        <span class="comment">//3.存储到session，重定向到list界面</span></span><br><span class="line">	response.sendRedirect(<span class="string">"request.getContextPath()"</span>+/index.jsp);</span><br><span class="line">	<span class="comment">//4.2.2若用户名密码错误</span></span><br><span class="line">        <span class="comment">//1.存储错误信息     </span></span><br><span class="line">        <span class="comment">//注意：因为上面若是验证码错误，存储后会直接return，因此两个错误信息可以复用一个msg名称</span></span><br><span class="line">        request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或密码错误"</span>);  </span><br><span class="line">        <span class="comment">//2.转发跳转登录页面，显示错误信息 </span></span><br><span class="line">		request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line"><span class="comment">//5.验证码输入错误</span></span><br><span class="line">	<span class="comment">//1.存储错误信息</span></span><br><span class="line">	request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误"</span>);    </span><br><span class="line">	<span class="comment">//2.跳转到登录页面，显示错误信息 </span></span><br><span class="line">	request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
 
-        2. 转发跳转登录页面，显示错误信息 
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requset.getRequestDispatcher(<span class="string">"/login.jsp"</span>).forward(req,resp);</span><br></pre></td></tr></table></figure>
-
-    2. 若输入正确
-        1. 封装输入信息到user对象
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建议在此步增加测试</span></span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">BeanUtils.populate(user,map);</span><br></pre></td></tr></table></figure>
-
-        2. 调用service方法进行查询操作
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UserService service = <span class="keyword">new</span> UserServiceImpl;</span><br><span class="line">User loginUser = service.login(user);</span><br></pre></td></tr></table></figure>
-
-        3. 若用户名密码正确
-            1. 返回loginUser对象
-               <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将用户存入session</span></span><br><span class="line">session.setAttribute(<span class="string">"user"</span>,loginUser);</span><br></pre></td></tr></table></figure>
-
-            2. 存储到session，重定向到list界面
-
-               <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//跳转页面</span><br><span class="line">response.sendRedirect(&quot;request.getContextPath()&quot;+/index.jsp);</span><br></pre></td></tr></table></figure>
-
-        4. 若用户名密码错误
-            1. 存储错误信息
-
-               <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：因为上面若是验证码错误，存储后会直接return，因此两个错误信息可以复用一个msg名称</span></span><br><span class="line">request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或密码错误"</span>);</span><br></pre></td></tr></table></figure>
-
-            2. 转发跳转登录页面，显示错误信息</code></pre><p>1.先判锻验证码输入正确的写法，和之前学的一样，但是if判断要稍麻烦些，注意这里自己写的是UserLoginServlet类，老师写的是LoginServlet类，仅名称不一样，login.jsp提交的路径要做些修改。</p>
+<p>1.先判锻验证码输入正确的写法，和之前学的一样，注意这里自己写的是UserLoginServlet类，老师写的是LoginServlet类，仅名称不一样，login.jsp提交的路径要做些修改。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.web.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.itcast.domain.User;</span><br><span class="line"><span class="keyword">import</span> cn.itcast.service.UserServiceImpl;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.beanutils.BeanUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/userLoginServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserLoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.设置编码格式</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        <span class="comment">//2.获取输入的验证码,在login中查看验证码input对应的id</span></span><br><span class="line">            <span class="comment">//注意getParameter和getAttribute的区别</span></span><br><span class="line">            <span class="comment">//getParameter是用来接受用post和get方法传递过来的参数的.</span></span><br><span class="line">            <span class="comment">//getAttribute必须先setAttribute</span></span><br><span class="line">        String verifycode = (String) request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line">            <span class="comment">//获取正确的验证码，</span></span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line">            <span class="comment">//获取完之后及时删除正确的验证码，防止验证码复用</span></span><br><span class="line">        session.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(verifycode+<span class="string">"-----"</span>+checkcode_server);</span><br><span class="line">        <span class="comment">//3.判断验证码输入是否正确</span></span><br><span class="line">            <span class="comment">//先判断验证码正确的写法</span></span><br><span class="line">        <span class="keyword">if</span>(checkcode_server!=<span class="keyword">null</span> &amp;&amp; checkcode_server.equalsIgnoreCase(verifycode))&#123;</span><br><span class="line">            <span class="comment">//3.1验证码正确</span></span><br><span class="line">            <span class="comment">//3.1.1封装用户输入为loginUser对象</span></span><br><span class="line">            User loginUser = <span class="keyword">new</span> User();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BeanUtils.populate(loginUser,request.getParameterMap());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException | InvocationTargetException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            UserServiceImpl service = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">            User user = service.login(loginUser);</span><br><span class="line">            <span class="comment">//3.1.2若查询结果不为空，登陆成功</span></span><br><span class="line">            <span class="keyword">if</span>(user != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//存储user数据</span></span><br><span class="line">                session.setAttribute(<span class="string">"user"</span>,user);</span><br><span class="line">                <span class="comment">//重定向到成功登录界面,注意，重定向需要加上项目的虚拟路径</span></span><br><span class="line">                response.sendRedirect(request.getContextPath()+<span class="string">"/index.jsp"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//存储错误信息</span></span><br><span class="line">                session.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或者密码错误！"</span>);</span><br><span class="line">                <span class="comment">//转发跳转到登陆界面</span></span><br><span class="line">                request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="comment">//3.2若没有return则说明验证码输入错误</span></span><br><span class="line">        request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误！"</span>);</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>2.先判断验证码不正确的新写法，if判断较简单(并不。。。)</p>
+<p>2.先判断验证码不正确的新写法，if判断较简单(并不。。。),不建议使用。</p>
 <p>注意：if判断的写法讲究：<font color="red"><strong>null.方法会带来空指针异常！</strong></font></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用户输入为verifycode		正确代码为checkcode_server</span></span><br><span class="line"><span class="comment">//用户若不输入则为空串""			用户若登录再返回再登录，chceckcode_server会为null</span></span><br><span class="line"><span class="comment">//注：input type="text" 不输入数据，默认为空串，若是checkbox、readio、select，不填则会为null值。</span></span><br><span class="line"><span class="comment">//1.最简便的写法verifycode在前，因为其不会为null，不会造成空指针异常</span></span><br><span class="line">	 <span class="keyword">if</span>(!verifycode.equalsIgnoreCase(checkcode_server))</span><br><span class="line"><span class="comment">//2.chceckcode_server在前的写法，要先判断其是否为空，若其为空直接判定为验证码错误，不执行||后面的内容，避免空指针异常</span></span><br><span class="line"><span class="comment">//还是推荐多判断一步，尽量减少异常</span></span><br><span class="line">      <span class="keyword">if</span>(checkcode_server==<span class="keyword">null</span> || !checkcode_server.equalsIgnoreCase(verifycode))</span><br><span class="line"><span class="comment">//3.先判断验证码正确的写法，也要先判断checkcode_server是否为null，避免空指针异常</span></span><br><span class="line">      <span class="keyword">if</span>(checkcode_server!=<span class="keyword">null</span> &amp;&amp; checkcode_server.equalsIgnoreCase(verifycode))&#123;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/userLoginServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserLoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.设置编码格式</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        <span class="comment">//2.获取输入的验证码,在login中查看验证码input对应的id</span></span><br><span class="line">            <span class="comment">//注意getParameter和getAttribute的区别</span></span><br><span class="line">            <span class="comment">//getParameter是用来接受用post和get方法传递过来的参数的.</span></span><br><span class="line">            <span class="comment">//getAttribute必须先setAttribute</span></span><br><span class="line">        String verifycode = (String) request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line">            <span class="comment">//获取正确的验证码，</span></span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line">            <span class="comment">//获取完之后及时删除正确的验证码，防止验证码复用</span></span><br><span class="line">        session.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(verifycode+<span class="string">"-----"</span>+checkcode_server);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.判断验证码输入是否正确</span></span><br><span class="line">            <span class="comment">//先判断验证码错误的话，判断情况可以少一点,并不能...</span></span><br><span class="line">            <span class="comment">//返回再次填写密码后会报错，空指针异常,因为这里null.equals调用了一个空指针的方法，会报错</span></span><br><span class="line">            <span class="comment">//此为错误使用 checkcode_server.equalsIgnoreCase(verifycode)</span></span><br><span class="line">            <span class="comment">//因此需要将verify放到前面来，即使用户输入为空，verify仍为空字符串而非null，防止空指针异常</span></span><br><span class="line">            <span class="comment">//"".equals(null)会返回false,因此不用担心括号内为null</span></span><br><span class="line">        <span class="keyword">if</span>(!verifycode.equalsIgnoreCase(checkcode_server))&#123;</span><br><span class="line">            <span class="comment">//3.1验证码输入不正确</span></span><br><span class="line">            <span class="comment">//存储错误信息到request，注意，这个login_msg是复用的，在else中可以存储为用户名密码错误</span></span><br><span class="line">            request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误！"</span>);</span><br><span class="line">            <span class="comment">//跳转到登陆页面</span></span><br><span class="line">            request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//3.2验证码输入正确</span></span><br><span class="line">            <span class="comment">//3.2.1封装用户输入为loginUser对象</span></span><br><span class="line">            User loginUser = <span class="keyword">new</span> User();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BeanUtils.populate(loginUser,request.getParameterMap());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException | InvocationTargetException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            UserService service = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">            User user = service.login(loginUser);</span><br><span class="line">            <span class="comment">//3.2.2若查询结果不为空，登陆成功</span></span><br><span class="line">            <span class="keyword">if</span>(user != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//存储user数据</span></span><br><span class="line">                session.setAttribute(<span class="string">"user"</span>,user);</span><br><span class="line">                <span class="comment">//重定向到成功登录界面,注意，重定向需要加上项目的虚拟路径</span></span><br><span class="line">                response.sendRedirect(request.getContextPath()+<span class="string">"/index.jsp"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//存储错误信息</span></span><br><span class="line">                session.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或者密码错误！"</span>);</span><br><span class="line">                <span class="comment">//转发跳转到登陆界面</span></span><br><span class="line">                request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/userLoginServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserLoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.设置编码格式</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        <span class="comment">//2.获取输入的验证码,在login中查看验证码input对应的id</span></span><br><span class="line">            <span class="comment">//注意getParameter和getAttribute的区别</span></span><br><span class="line">            <span class="comment">//getParameter是用来接受用post和get方法传递过来的参数的.</span></span><br><span class="line">            <span class="comment">//getAttribute必须先setAttribute</span></span><br><span class="line">        String verifycode = (String) request.getParameter(<span class="string">"verifycode"</span>);</span><br><span class="line">            <span class="comment">//获取正确的验证码，</span></span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        String checkcode_server = (String) session.getAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line">            <span class="comment">//获取完之后及时删除正确的验证码，防止验证码复用</span></span><br><span class="line">        session.removeAttribute(<span class="string">"CHECKCODE_SERVER"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(verifycode+<span class="string">"-----"</span>+checkcode_server);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.判断验证码输入是否正确</span></span><br><span class="line">            <span class="comment">//先判断验证码错误的话，判断情况可以少一点,并不能...</span></span><br><span class="line">            <span class="comment">//返回再次填写密码后会报错，空指针异常,因为这里null.equals调用了一个空指针的方法，会报错</span></span><br><span class="line">            <span class="comment">//此为错误使用 checkcode_server.equalsIgnoreCase(verifycode)</span></span><br><span class="line">            <span class="comment">//因此需要将verify放到前面来，即使用户输入为空，verify仍为空字符串而非null，防止空指针异常</span></span><br><span class="line">            <span class="comment">//"".equals(null)会返回false,因此不用担心括号内为null</span></span><br><span class="line">                <span class="comment">//再次追加，如果直接访问userLoginServlet而不是login.jsp,没有调用CheckCodeServlet,</span></span><br><span class="line">                <span class="comment">//会出现正确的验证码也为空的情况，此方法不安全，建议每次.方法之前都判断以下引用对象是否为空</span></span><br><span class="line">        <span class="keyword">if</span>(!verifycode.equalsIgnoreCase(checkcode_server))&#123;</span><br><span class="line">            <span class="comment">//3.1验证码输入不正确</span></span><br><span class="line">            <span class="comment">//存储错误信息到request，注意，这个login_msg是复用的，在else中可以存储为用户名密码错误</span></span><br><span class="line">            request.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"验证码错误！"</span>);</span><br><span class="line">            <span class="comment">//跳转到登陆页面</span></span><br><span class="line">            request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//3.2验证码输入正确</span></span><br><span class="line">            <span class="comment">//3.2.1封装用户输入为loginUser对象</span></span><br><span class="line">            User loginUser = <span class="keyword">new</span> User();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BeanUtils.populate(loginUser,request.getParameterMap());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException | InvocationTargetException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            UserService service = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line"></span><br><span class="line">            User user = service.login(loginUser);</span><br><span class="line">            <span class="comment">//3.2.2若查询结果不为空，登陆成功</span></span><br><span class="line">            <span class="keyword">if</span>(user != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//存储user数据</span></span><br><span class="line">                session.setAttribute(<span class="string">"user"</span>,user);</span><br><span class="line">                <span class="comment">//重定向到成功登录界面,注意，重定向需要加上项目的虚拟路径</span></span><br><span class="line">                response.sendRedirect(request.getContextPath()+<span class="string">"/index.jsp"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//存储错误信息</span></span><br><span class="line">                session.setAttribute(<span class="string">"login_msg"</span>,<span class="string">"用户名或者密码错误！"</span>);</span><br><span class="line">                <span class="comment">//转发跳转到登陆界面</span></span><br><span class="line">                request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">                request.getRequestDispatcher(<span class="string">"login.jsp"</span>).forward(request,response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="5-修改login-jsp，显示登录错误信息"><a href="#5-修改login-jsp，显示登录错误信息" class="headerlink" title="5.修改login.jsp，显示登录错误信息"></a>5.修改login.jsp，显示登录错误信息</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 出错显示的信息框 --&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"alert alert-warning alert-dismissible"</span> role=<span class="string">"alert"</span>&gt;</span><br><span class="line">    &lt;button type=<span class="string">"button"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span> &gt;</span><br><span class="line">        &lt;span&gt;&amp;times;&lt;/span&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">    &lt;strong&gt;$&#123;login_msg&#125;&lt;/strong&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
@@ -767,15 +756,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -811,11 +800,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Session</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,23 +848,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">约束</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数据库设计</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">多表之间的关系</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据库的备份和还原</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据库设计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,18 +884,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
@@ -907,11 +896,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">random库</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多表之间的关系</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">random库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,7 +944,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
+                <a href="javascript:void(0)" class="js-tag color3">输入input</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">while循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,19 +960,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">输入input</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">while循环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">verilog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -987,15 +984,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1027,10 +1024,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">案例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">查询</a>
               </li>
              
@@ -1039,15 +1032,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1063,15 +1056,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
               </li>
             
             <div class="clearfix"></div>

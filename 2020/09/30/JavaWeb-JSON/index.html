@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="马孔多今天下雨了吗">
 <meta property="og:description" content="JavaWeb-JSON1.概念：​    JavaScript Object Notation —&amp;gt; JavaScript 对象表示法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-30T08:45:55.475Z">
+<meta property="og:updated_time" content="2020-10-02T14:33:30.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-JSON">
 <meta name="twitter:description" content="JavaWeb-JSON1.概念：​    JavaScript Object Notation —&amp;gt; JavaScript 对象表示法">
@@ -214,7 +214,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">108字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -223,7 +223,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -245,23 +245,69 @@
 <li>JSON比XML更小、更快、更易解析</li>
 </ul>
 <h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2.语法"></a>2.语法</h2><h4 id="1-基本规则"><a href="#1-基本规则" class="headerlink" title="1.基本规则"></a>1.基本规则</h4><ul>
-<li>数据在名称/值对中：json数据是由键值对构成的<ol>
-<li>fuck</li>
-<li>fuck</li>
-<li>ffuffffuck<ol>
-<li>fuck</li>
-<li>fuck<ul>
-<li>fuck<ul>
-<li>fuck</li>
+<li><p>数据在名称/值对中：json数据是由键值对构成的</p>
+<ul>
+<li>键用引号(单双都行)引起来，也可以不使用引号</li>
+<li>键的取值类型：<ol>
+<li>数字(整数或浮点数)</li>
+<li>字符串(在双引号中)</li>
+<li>逻辑值(true 或 false)</li>
+<li>数组(在方括号中) {“person”:[{},{}]}</li>
+<li>对象(在花括号中) {“address”:{“province”:陕西…}}</li>
+<li>null</li>
+</ol>
+</li>
+<li>数据由逗号分隔:多个键值对使用逗号分隔</li>
+</ul>
+<ul>
+<li><p>花括号保存对象:使用{}定义json格式</p>
+</li>
+<li><p>方括号保存数组:[]</p>
+</li>
 </ul>
 </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//1.定义基本格式</span></span></span><br><span class="line"><span class="actionscript">         <span class="keyword">var</span> person = &#123;name:<span class="string">"张三"</span>,age:<span class="number">23</span>,gender:<span class="literal">true</span>&#125;;</span></span><br><span class="line"><span class="actionscript">         <span class="comment">// alert(person);</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//2.嵌套格式,一个json里边嵌套多个json。 s = &#123;one:[&#123;&#125;,&#123;&#125;,&#123;&#125;]&#125;;</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> persons = &#123;</span></span><br><span class="line">            person:[</span><br><span class="line"><span class="actionscript">                &#123;name:<span class="string">"张三"</span>,age:<span class="number">23</span>,gender:<span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">                &#123;name:<span class="string">"李四"</span>,age:<span class="number">24</span>,gender:<span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">                &#123;name:<span class="string">"王五"</span>,age:<span class="number">22</span>,gender:<span class="literal">false</span>&#125;</span></span><br><span class="line">                ]</span><br><span class="line">        &#125;;</span><br><span class="line"><span class="actionscript">        <span class="comment">// alert(persons)</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//3.数组嵌套，一个数组里边存放多个json。 list = [&#123;&#125;,&#123;&#125;,&#123;&#125;];</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> psList = [&#123;name:<span class="string">"张三"</span>,age:<span class="number">23</span>,gender:<span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            &#123;name:<span class="string">"李四"</span>,age:<span class="number">24</span>,gender:<span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            &#123;name:<span class="string">"王五"</span>,age:<span class="number">22</span>,gender:<span class="literal">false</span>&#125;];</span></span><br><span class="line">        alert(psList);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-获取数据"><a href="#2-获取数据" class="headerlink" title="2.获取数据"></a>2.获取数据</h4><ol>
+<li>json对象.键名</li>
+<li>json对象[“键名”]</li>
+<li>数组对象[索引]</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--json的遍历--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//遍历json，像map一样遍历key，获取value</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> person = &#123;name:<span class="string">"张三"</span>,age:<span class="number">23</span>,gender:<span class="literal">true</span>&#125;;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> person)&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">//.key方法不行，因为key获取的是字符串相当于."key"，语法不合规</span></span></span><br><span class="line"><span class="actionscript">            <span class="comment">//alert(key + " " + person.key);</span></span></span><br><span class="line"><span class="actionscript">            alert(key + <span class="string">" "</span> + person[key]);</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">//遍历json数组，循环嵌套</span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> psList = [&#123;name:<span class="string">"张三"</span>,age:<span class="number">23</span>,gender:<span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            &#123;name:<span class="string">"李四"</span>,age:<span class="number">24</span>,gender:<span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            &#123;name:<span class="string">"王五"</span>,age:<span class="number">22</span>,gender:<span class="literal">false</span>&#125;];</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; psList.length; i++) &#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">//把每个json都拿出来作为p</span></span></span><br><span class="line"><span class="actionscript">            <span class="keyword">var</span> p = psList[i];</span></span><br><span class="line"><span class="actionscript">            <span class="comment">//对p的键值对再次遍历</span></span></span><br><span class="line"><span class="actionscript">            <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> p)&#123;</span></span><br><span class="line"><span class="actionscript">                alert(key + <span class="string">" "</span> + p[key]);</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-JSON数据和Java对象的相互转换"><a href="#3-JSON数据和Java对象的相互转换" class="headerlink" title="3.JSON数据和Java对象的相互转换"></a>3.JSON数据和Java对象的相互转换</h4><ul>
+<li><p>JSON解析器：</p>
+<ul>
+<li>常见的解析器：Jsonlib,Gson,fastjson,jackson<h5 id="1-JSON转为Java对象"><a href="#1-JSON转为Java对象" class="headerlink" title="1.JSON转为Java对象"></a>1.JSON转为Java对象</h5></li>
+</ul>
+</li>
+<li><p>并不常用</p>
+</li>
+</ul>
+<h5 id="2-Java对象转换为JSON"><a href="#2-Java对象转换为JSON" class="headerlink" title="2.Java对象转换为JSON"></a>2.Java对象转换为JSON</h5><ol>
+<li>导入jackson的相应jar包</li>
+<li>创建Jackson核心对象ObjectMapper</li>
+<li>调用ObjectMapper的相关方法进行转换 </li>
+</ol>
+<p>⭐转换方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"><span class="comment">//1.导入jackson的相应jar包</span></span><br><span class="line"><span class="comment">//2.创建person实体类</span></span><br><span class="line">Person person = <span class="keyword">new</span> Person();</span><br><span class="line">person.setName(<span class="string">"张三"</span>);</span><br><span class="line">person.setAge(<span class="number">23</span>);</span><br><span class="line">person.setGender(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//3.创建Jackson核心对象ObjectMapper</span></span><br><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="comment">/*4.调用mapper对象的方法进行转换</span></span><br><span class="line"><span class="comment">    writeValue(参数1,obj);</span></span><br><span class="line"><span class="comment">    参数1：</span></span><br><span class="line"><span class="comment">        OutputStream:将obj对象转换为JSON字符串，并将json数据填充到字节输出流中</span></span><br><span class="line"><span class="comment">        Writer:将obj对象转换为JSON字符串，并将json数据填充到字符输出流中</span></span><br><span class="line"><span class="comment">        File:将obj对象转换为JSON字符串，并保存到指定的文件中</span></span><br><span class="line"><span class="comment">    writeValueAsString(obj):将对象转换为json字符串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//&#123;"name":"张三","age":23,"gender":true&#125;</span></span><br><span class="line">String json = mapper.writeValueAsString(person);</span><br><span class="line">System.out.println(json);</span><br><span class="line"></span><br><span class="line"><span class="comment">//writeValue(File,obj)，将数据传到d://a.txt文件中</span></span><br><span class="line">mapper.writeValue(<span class="keyword">new</span> File(<span class="string">"d://a.txt"</span>),person);</span><br><span class="line"></span><br><span class="line"><span class="comment">//writeValue(Writer,obj),将数据关联到Writer中</span></span><br><span class="line">mapper.writeValue(<span class="keyword">new</span> FileWriter(<span class="string">"d://b.txt"</span>),person);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⭐注解：在对象类属性上边添加相应注解，实现在json中的调整</p>
+<ol>
+<li>@JsonIgnore：排除属性不予在json中显示</li>
+<li>@JsonFormat：属性值格式化显示<ul>
+<li>@JsonFormat(pattern = “yyyy-MM-dd”)</li>
 </ul>
 </li>
 </ol>
-</li>
+<p>⭐复杂java对象转换</p>
+<ol>
+<li>List：转换为数组。</li>
+<li>Map：和对象转换成的格式一致。</li>
 </ol>
-</li>
-</ul>
+<h2 id="3-案例：校验用户名是否存在"><a href="#3-案例：校验用户名是否存在" class="headerlink" title="3.案例：校验用户名是否存在"></a>3.案例：校验用户名是否存在</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.itcast.web.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/findUserServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindUserServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.获取用户名</span></span><br><span class="line">        String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.调用service层判断用户名是否存在</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//期望服务器响应回的数据格式：&#123;"userExsit":true,"msg":"此用户名太受欢迎,请更换一个"&#125;</span></span><br><span class="line">        <span class="comment">//                         &#123;"userExsit":false,"msg":"用户名可用"&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置响应的数据格式为json</span></span><br><span class="line">        response.setContentType(<span class="string">"application/json;charset=utf-8"</span>);</span><br><span class="line">        Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"tom"</span>.equals(username))&#123;</span><br><span class="line">            <span class="comment">//存在</span></span><br><span class="line">            map.put(<span class="string">"userExsit"</span>,<span class="keyword">true</span>);</span><br><span class="line">            map.put(<span class="string">"msg"</span>,<span class="string">"此用户名太受欢迎,请更换一个"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//不存在</span></span><br><span class="line">            map.put(<span class="string">"userExsit"</span>,<span class="keyword">false</span>);</span><br><span class="line">            map.put(<span class="string">"msg"</span>,<span class="string">"用户名可用"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将map转为json，并且传递给客户端</span></span><br><span class="line">        <span class="comment">//将map转为json</span></span><br><span class="line">        ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">        <span class="comment">//并且传递给客户端</span></span><br><span class="line">        mapper.writeValue(response.getWriter(),map);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -401,6 +447,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/10/02/JavaWeb-案例：Filter案例/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaWeb-案例：Filter案例
+        
+      </div>
+    </a>
   
   
     <a href="/2020/09/28/JavaWeb-案例：用户信息列表展示/" id="article-nav-older" class="article-nav-link-wrap">
@@ -577,15 +632,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,11 +676,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Session</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,23 +724,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">约束</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数据库设计</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">多表之间的关系</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据库的备份和还原</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据库设计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,18 +760,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
@@ -717,11 +772,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">random库</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多表之间的关系</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">random库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -757,7 +820,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
+                <a href="javascript:void(0)" class="js-tag color3">输入input</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">while循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,19 +836,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">输入input</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">while循环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">verilog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,15 +860,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">大话数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,10 +900,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">案例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">查询</a>
               </li>
              
@@ -849,15 +908,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,15 +932,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">组合数据类型</a>
               </li>
             
             <div class="clearfix"></div>
