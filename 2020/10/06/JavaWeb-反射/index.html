@@ -19,7 +19,7 @@
 <meta property="og:description" content="JavaWeb-反射框架：半成品软件。可以在框架的基础上进行软件开发，简化代码 反射：将类的各个组成部分(成员变量、构造方法、成员方法)封装为其他对象，这就是反射机制">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2020/10/06/JavaWeb-反射/1.png">
-<meta property="og:updated_time" content="2020-10-06T14:19:23.735Z">
+<meta property="og:updated_time" content="2020-10-07T03:33:13.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb-反射">
 <meta name="twitter:description" content="JavaWeb-反射框架：半成品软件。可以在框架的基础上进行软件开发，简化代码 反射：将类的各个组成部分(成员变量、构造方法、成员方法)封装为其他对象，这就是反射机制">
@@ -216,7 +216,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">506字</span>
+      <span class="post-count">1.7k字</span>
     </span>
   </span>
 
@@ -225,7 +225,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -263,7 +263,66 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.reflect;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.itcast.domain.People;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     1. Class.forName("全类名")：将字节码文件加载进内存，返回Class对象</span></span><br><span class="line"><span class="comment">        * 多用于配置文件，将类名定义在配置文件中。从配置文件中读出的是字符串，加载类</span></span><br><span class="line"><span class="comment">     2. 类名.class：通过类名的属性class获取</span></span><br><span class="line"><span class="comment">        * 多用于参数的传递</span></span><br><span class="line"><span class="comment">     3. 对象.getClass()：getClass()方法在Object类中定义着(所有类有该方法)</span></span><br><span class="line"><span class="comment">        * 多用于对象的获取字节码的方式</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//1.Class.forName("全类名")</span></span><br><span class="line">        Class cls1 = Class.forName(<span class="string">"cn.itcast.domain.People"</span>);</span><br><span class="line">        System.out.println(cls1);</span><br><span class="line">        <span class="comment">//2.类名.class</span></span><br><span class="line">        Class cls2 = People.class;</span><br><span class="line">        System.out.println(cls2);</span><br><span class="line">        <span class="comment">//3.对象.getClass</span></span><br><span class="line">        People p = <span class="keyword">new</span> People();</span><br><span class="line">        Class cls3 = p.getClass();</span><br><span class="line">        System.out.println(cls3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// == 比较三个对象,== 比较的是三个对象的地址</span></span><br><span class="line">        <span class="comment">// 地址相同说明三个对象指向的是内存中的同一块地址</span></span><br><span class="line">        System.out.println(cls1 == cls2);</span><br><span class="line">        System.out.println(cls1 == cls3);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-----&gt;    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">cn</span>.<span class="title">itcast</span>.<span class="title">domain</span>.<span class="title">People</span></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">cn</span>.<span class="title">itcast</span>.<span class="title">domain</span>.<span class="title">People</span></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">cn</span>.<span class="title">itcast</span>.<span class="title">domain</span>.<span class="title">People</span></span></span><br><span class="line"><span class="class"><span class="title">true</span></span></span><br><span class="line"><span class="class"><span class="title">true</span></span></span><br></pre></td></tr></table></figure>
 
 <p>结论：<br>同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次。不论通过哪一种方式获取的class对象都是同一个。</p>
-<h3 id="2-Class功能"><a href="#2-Class功能" class="headerlink" title="2.Class功能"></a>2.Class功能</h3>
+<h3 id="2-Class功能"><a href="#2-Class功能" class="headerlink" title="2.Class功能"></a>2.Class功能</h3><p>获取功能</p>
+<p>1.获取成员变量们</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Field[] getFields() ：获取所有<span class="keyword">public</span>修饰的成员变量</span><br><span class="line"><span class="function">Field <span class="title">getField</span><span class="params">(String name)</span>   获取指定名称的 <span class="keyword">public</span>修饰的成员变量</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Field[] <span class="title">getDeclaredFields</span><span class="params">()</span>  获取所有的成员变量，不考虑修饰符</span></span><br><span class="line"><span class="function">Field <span class="title">getDeclaredField</span><span class="params">(String name)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>2.获取构造方法们</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Constructor&lt;?&gt;[] getConstructors()  </span><br><span class="line"><span class="function">Constructor&lt;T&gt; <span class="title">getConstructor</span><span class="params">(类&lt;?&gt;... parameterTypes)</span>  </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Constructor&lt;T&gt; <span class="title">getDeclaredConstructor</span><span class="params">(类&lt;?&gt;... parameterTypes)</span>  </span></span><br><span class="line"><span class="function">Constructor&lt;?&gt;[] <span class="title">getDeclaredConstructors</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>3.获取成员方法们</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Method[] getMethods()  </span><br><span class="line"><span class="function">Method <span class="title">getMethod</span><span class="params">(String name, 类&lt;?&gt;... parameterTypes)</span>  </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Method[] <span class="title">getDeclaredMethods</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">Method <span class="title">getDeclaredMethod</span><span class="params">(String name, 类&lt;?&gt;... parameterTypes)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>4.获取全类名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Field：成员变量"><a href="#3-Field：成员变量" class="headerlink" title="3.Field：成员变量"></a>3.Field：成员变量</h3><p>操作：</p>
+<p>1.设置值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Object obj,Objcect value)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>2.获取值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get(Object obj)</span><br></pre></td></tr></table></figure>
+
+<p>3.忽略访问权限符的安全检查</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setAccessible(<span class="keyword">true</span>)	<span class="comment">//暴力反射</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       <span class="comment">//0.获取People的Class对象</span></span><br><span class="line">       Class peopleClass = People.class;</span><br><span class="line"></span><br><span class="line">       <span class="comment">//获取public的成员变量</span></span><br><span class="line">       Field[] fields = peopleClass.getFields();</span><br><span class="line">       <span class="keyword">for</span>(Field field : fields)&#123;</span><br><span class="line">           System.out.println(field);</span><br><span class="line">           <span class="comment">//public java.lang.String cn.itcast.domain.People.a</span></span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println(<span class="string">"----------------------"</span>);</span><br><span class="line">       Field a = peopleClass.getField(<span class="string">"a"</span>);</span><br><span class="line">       <span class="comment">//获取指定名称的 public修饰成员变量a的值</span></span><br><span class="line">       People p = <span class="keyword">new</span> People();</span><br><span class="line">       Object value = a.get(p);</span><br><span class="line">       System.out.println(value);      <span class="comment">//null</span></span><br><span class="line">       a.set(p,<span class="string">"张三"</span>);</span><br><span class="line">       System.out.println(a.get(p));   <span class="comment">//张三</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       <span class="comment">//获取所有的成员变量</span></span><br><span class="line">       Field[] declaredFields = peopleClass.getDeclaredFields();</span><br><span class="line">       <span class="keyword">for</span> (Field declaredField : declaredFields) &#123;</span><br><span class="line">           System.out.println(declaredField);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">/*</span></span><br><span class="line"><span class="comment">       private java.lang.String cn.itcast.domain.People.name</span></span><br><span class="line"><span class="comment">       private int cn.itcast.domain.People.age</span></span><br><span class="line"><span class="comment">       public java.lang.String cn.itcast.domain.People.a</span></span><br><span class="line"><span class="comment">       protected java.lang.String cn.itcast.domain.People.b</span></span><br><span class="line"><span class="comment">       java.lang.String cn.itcast.domain.People.c</span></span><br><span class="line"><span class="comment">       private java.lang.String cn.itcast.domain.People.d</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">       System.out.println(<span class="string">"---------------------"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       Field d = peopleClass.getDeclaredField(<span class="string">"d"</span>);</span><br><span class="line">       <span class="comment">//暴力反射，忽略访问权限的安全检查(d原本是private，不能被外部类直接访问或修改)</span></span><br><span class="line">       d.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    	<span class="comment">//设置d</span></span><br><span class="line">       d.set(p,<span class="string">"ddd"</span>);</span><br><span class="line">       Object dd = d.get(p);</span><br><span class="line">       System.out.println(dd);     <span class="comment">//ddd</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Constructor：构造方法"><a href="#4-Constructor：构造方法" class="headerlink" title="4.Constructor：构造方法"></a>4.Constructor：构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">创建对象：</span><br><span class="line">	<span class="function">T <span class="title">newInstance</span><span class="params">(Object....initargs)</span></span></span><br><span class="line"><span class="function">	如果使用空参数构造方法创建对象，操作可以简化：class对象的newInstance方法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Method：方法对象"><a href="#5-Method：方法对象" class="headerlink" title="5.Method：方法对象"></a>5.Method：方法对象</h3><p>1.执行方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object <span class="title">invoke</span><span class="params">(Object obj,Object...args)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>2.获取方法名称</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String getName：获取方法名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//0.获取People的Class对象</span></span><br><span class="line">        Class peopleClass = People.class;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.获取所有public修饰的方法</span></span><br><span class="line">        Method[] methods = peopleClass.getMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">            <span class="comment">//不只有类中定义的public方法</span></span><br><span class="line">            <span class="comment">//其父类Object的一些方法会被打印</span></span><br><span class="line">            System.out.println(method);</span><br><span class="line">            <span class="comment">//获取方法名称</span></span><br><span class="line">            System.out.println(method.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.执行方法invoke</span></span><br><span class="line">        People p = <span class="keyword">new</span> People();</span><br><span class="line">        Method eat = peopleClass.getMethod(<span class="string">"eat"</span>);</span><br><span class="line">        eat.invoke(p);</span><br><span class="line">        Method eat2 = peopleClass.getMethod(<span class="string">"eat"</span>,String.class);</span><br><span class="line">        eat2.invoke(p,<span class="string">"奥里给"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">--------------&gt;</span><br><span class="line"><span class="keyword">public</span> java.lang.String cn.itcast.domain.People.getName()</span><br><span class="line">getName</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> cn.itcast.domain.People.setName(java.lang.String)</span><br><span class="line">setName</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> cn.itcast.domain.People.getAge()</span><br><span class="line">getAge</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> cn.itcast.domain.People.setAge(<span class="keyword">int</span>)</span><br><span class="line">setAge</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> cn.itcast.domain.People.eat()</span><br><span class="line">eat</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> cn.itcast.domain.People.eat(java.lang.String)</span><br><span class="line">eat</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> java.lang.Object.wait() <span class="keyword">throws</span> java.lang.InterruptedException</span><br><span class="line">wait</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> java.lang.Object.wait(<span class="keyword">long</span>,<span class="keyword">int</span>) <span class="keyword">throws</span> java.lang.InterruptedException</span><br><span class="line">wait</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> java.lang.Object.wait(<span class="keyword">long</span>) <span class="keyword">throws</span> java.lang.InterruptedException</span><br><span class="line">wait</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> java.lang.Object.equals(java.lang.Object)</span><br><span class="line">equals</span><br><span class="line"><span class="keyword">public</span> java.lang.String java.lang.Object.toString()</span><br><span class="line">toString</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> java.lang.Object.hashCode()</span><br><span class="line">hashCode</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> java.lang.Class java.lang.Object.getClass()</span><br><span class="line">getClass</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> java.lang.Object.notify()</span><br><span class="line">notify</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> java.lang.Object.notifyAll()</span><br><span class="line">notifyAll</span><br><span class="line"></span><br><span class="line">eat...</span><br><span class="line">eat...奥里给</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-获取类名"><a href="#6-获取类名" class="headerlink" title="6.获取类名"></a>6.获取类名</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取类名</span></span><br><span class="line">String className = peopleClass.getName();</span><br><span class="line">System.out.println(className);		<span class="comment">//cn.itcast.domain.People</span></span><br></pre></td></tr></table></figure>
+
+<p>注意获取的是全类名：包名.类名</p>
+<h3 id="7-案例："><a href="#7-案例：" class="headerlink" title="7.案例："></a>7.案例：</h3><p>需求：写一个”框架”，不能改变该类任何代码的前提下，可以帮我们创建任意类的对象，并且执行其中任意方法。</p>
+<p>实现：</p>
+<ol>
+<li>配置文件</li>
+<li>反射</li>
+</ol>
+<p>步骤：</p>
+<ol>
+<li>将需要创建的对象的全类名和需要执行的方法定义在配置文件中</li>
+<li>在程序中加载读取配置文件</li>
+<li>使用反射技术来加载类文件进内存</li>
+<li>创建对象</li>
+<li>执行方法</li>
+</ol>
+<p>直接修改配置文件中的类名和方法名即可创建不同的类，执行不同的类方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 框架类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.itcast.reflect;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.加载配置文件</span></span><br><span class="line">        <span class="comment">//1.1创建Properties对象</span></span><br><span class="line">        Properties pro = <span class="keyword">new</span> Properties();</span><br><span class="line">        <span class="comment">//1.2加载配置文件，转换为一个集合</span></span><br><span class="line">        <span class="comment">//1.2.1获取class目录下的配置文件</span></span><br><span class="line">            <span class="comment">//获取类加载器</span></span><br><span class="line">        ClassLoader classLoader = ReflectTest.class.getClassLoader();</span><br><span class="line">            <span class="comment">//获取资源对应的字节流</span></span><br><span class="line">        InputStream is = classLoader.getResourceAsStream(<span class="string">"pro.properties"</span>);</span><br><span class="line">        pro.load(is);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.获取配置文件中定义的数据</span></span><br><span class="line">        String className = pro.getProperty(<span class="string">"className"</span>);</span><br><span class="line">        String methodName = pro.getProperty(<span class="string">"methodName"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.加载该类进内存</span></span><br><span class="line">        Class cls = Class.forName(className);</span><br><span class="line">        <span class="comment">//4.创建对象</span></span><br><span class="line">        Object obj = cls.newInstance();</span><br><span class="line">        <span class="comment">//5.获取方法对象</span></span><br><span class="line">        Method method = cls.getMethod(methodName);</span><br><span class="line">        <span class="comment">//6.执行方法</span></span><br><span class="line">        method.invoke(obj);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">className</span>=<span class="string">cn.itcast.domain.Student</span></span><br><span class="line"><span class="attr">methodName</span>=<span class="string">sleep</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：pro.properties文件类名和方法名不需要加双引号！否则会出现classNotFound Exception，找不到类的错误！！！！</p>
+<p>注意：pro.properties直接放在src目录下</p>
+
     
 
     
@@ -402,6 +461,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/10/07/JavaWeb-注解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaWeb-注解
+        
+      </div>
+    </a>
   
   
     <a href="/2020/10/06/JavaWeb-Junit单元测试/" id="article-nav-older" class="article-nav-link-wrap">
@@ -570,11 +638,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,11 +662,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">表单标签</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color1">Jedis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">表单标签</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,18 +679,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Jedis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,6 +691,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">转发与重定向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,7 +718,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">案例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,11 +726,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">案例</a>
+                <a href="javascript:void(0)" class="js-tag color3">概述</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概述</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DCL语句</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,15 +746,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DDL语句</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DCL语句</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,15 +754,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DQL语句</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">约束</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">DQL语句</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据库的备份和还原</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,7 +774,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">范式</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,6 +783,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">pyInstaller</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">范式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,18 +810,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据库的备份和还原</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">random库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
@@ -755,6 +819,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">random库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,11 +842,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">列表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+                <a href="javascript:void(0)" class="js-tag color3">循环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">字典</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,19 +866,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">字典</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">循环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">分支结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">删除</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,10 +898,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">删除</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">输入input</a>
               </li>
              
@@ -838,15 +910,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,11 +942,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Request</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,11 +966,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">modelsim</a>
               </li>
              
               <li class="article-tag-list-item">
